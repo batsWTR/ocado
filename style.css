@@ -1,0 +1,44 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#content{
+    background: url('./public/images/back.jpg') no-repeat;
+    background-size: cover;
+    background-position: bottom right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#login{
+    width: 25rem;
+    height: 15rem;
+    background-color: pink;
+    color: whitesmoke;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#login h2{
+    text-align: center;
+}
+#login div{
+    margin: 1rem 0;
+    text-align: end;
+}
+#login input{
+    border-radius: 0.4rem;
+}
+
+#login button{
+    text-align: center;
+    padding: 0.4rem;
+}
