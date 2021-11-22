@@ -3,6 +3,6 @@
 
 
 function createUser($user, $pass){
-
-    return $user;
+    $hash_pass = crypt($pass, '25');
+    return $hash_pass;
 }

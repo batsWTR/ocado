@@ -1,6 +1,6 @@
 <?php
 
-require("./model/model.php");
+require("./model/UserManager.php");
 
 function login(){
     require('./view/login.php');
@@ -17,7 +17,8 @@ function contact(){
 
 function userCreation($user, $pass){
 
-    echo $user.' '.$pass;
+    $userManager = new UserManager();
+    echo $userManager->userCreate($user, $pass);
 }
 
 function connect($name,$login,$pass){

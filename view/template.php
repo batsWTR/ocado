@@ -13,6 +13,7 @@
 <body>
     <header>
         <div class="logo"><a href="index.php">logo</a></div>
+        <div>O'cado</div>
         <nav>
             <ul>
                 <li><a href="index.php?url=signup">S'enregistrer</a></li>
