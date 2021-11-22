@@ -4,7 +4,7 @@
 
 <div id="content">
     <div id="login">
-        <form action="">
+        <form action="index.php?url=createUser" method="POST">
             <h2>Creer un compte</h2>
             <div>
                 <label for="login">Utilisateur</label>

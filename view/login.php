@@ -4,7 +4,7 @@
 
     <div id="content">
         <div id="login">
-            <form action="">
+            <form action="index.php?url=connect" method="POST">
                 <h2>Connection</h2>
                 <div>
                     <label for="name">Prenom</label>

@@ -16,7 +16,7 @@
         <nav>
             <ul>
                 <li><a href="index.php?url=signup">S'enregistrer</a></li>
-                <li></li>
+                <li><a href="index.php?url=contact">?</a></li>
             </ul>
         </nav>
     </header>
