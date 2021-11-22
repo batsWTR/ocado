@@ -2,4 +2,12 @@
 
 require('./controller/controller.php');
 
-login();
+$route = htmlspecialchars($_GET['url']);
+
+
+if($route == ''){
+    login();
+}elseif($route == 'signup'){
+    signup();
+}
+

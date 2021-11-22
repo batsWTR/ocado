@@ -1,20 +1,12 @@
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+
 
 #content{
-    background: url('./public/images/back.jpg') no-repeat;
-    background-size: cover;
-    background-position: bottom right;
     display: flex;
     justify-content: center;
-    align-items: center;
     height: 100vh;
+    align-items: center;
 }
-
 #login{
     width: 25rem;
     height: 15rem;
@@ -25,6 +17,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    box-shadow: 5px -5px rgb(255, 173, 187);
 }
 
 #login h2{
