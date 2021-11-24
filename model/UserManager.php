@@ -30,7 +30,7 @@ class UserManager extends Manager{
             'password'=>$pass,
             'login'=>$login,
             'email'=>$mail,
-        ]) or die(print_r($db->errorInfo()));
+        ]) or die(require('./view/error.php'));
 
         $users = $receve->fetchAll();
         return TRUE;

@@ -7,7 +7,10 @@ $route = htmlspecialchars($_GET['url']);
 
 
 if($route == ''){
+    accueil();
+}elseif($route == 'login'){
     login();
+
 }elseif($route == 'signup'){
     signup();
 }elseif($route == 'contact'){
@@ -15,7 +18,7 @@ if($route == ''){
 
 }elseif($route == 'createUser'){
     $login = htmlspecialchars($_POST['login']);
-    $name = htmlspecialchars($_post['name']);
+    $name = htmlspecialchars($_POST['name']);
     $mail = htmlspecialchars($_POST['mail']);
     $pass = htmlspecialchars($_POST['password']);
 
