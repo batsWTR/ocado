@@ -1,16 +1,19 @@
 
-
+.alert{
+    position: absolute;
+}
 
 #content{
     display: flex;
-    flex-direction: column;
     justify-content: center;
- 
-    align-items: center;
 }
 #login{
     width: 25rem;
-    height: 15rem;
+    height: 18rem;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-40%);
     background-color: pink;
     border-radius: 1.5rem;
     display: flex;
@@ -31,7 +34,3 @@
     border-radius: 0.4rem;
 }
 
-#login button{
-    text-align: center;
-    padding: 0.4rem;
-}

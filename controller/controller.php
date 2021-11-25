@@ -3,7 +3,20 @@
 require("./model/UserManager.php");
 
 function accueil(){
+    session_start();
+    if($_SESSION['name']){
+        require_once('./view/ocado.php');
+        return;
+    }
+
     require('./view/accueil.php');
+}
+
+function disconnect(){
+    session_start();
+    session_destroy();
+    unset($_SESSION);
+    require_once('./view/accueil.php');
 }
 
 function login(){
@@ -44,26 +57,47 @@ function userCreation($login, $pass, $name, $mail){
         return;
     }
 
-    $pass_hash = password_hash($pass, PASSWORD_DEFAULT);
+    $pass_hash = crypt($pass, 'lepetitchaperonrouge');
    
 
     $userManager = new UserManager();
     $create = $userManager->userCreate($login,$pass_hash,$name,$mail);
 
-    if($create){
-        require_once('./view/ocado.php');
-        return;
-    }else{
+    if(!$create){
         $message= 'l utilisateur existe deja';
+        require_once('./view/signup.php');
+        return;
     }
 
+    session_start();
+    $_SESSION['name'] = $name;
 
-    require_once('./view/signup.php');
+    require_once('./view/ocado.php');
+
+    
 }
 
 function connect($name,$login,$pass){
     if($name == '' or $login == '' or $pass == ''){
-        echo 'il manque un champs';
+        $message = 'il manque un champs';
+        require_once('./view/login.php');
+        return;
+
     }
-    echo $name.' '.$login.' '.$pass;
+
+    $pass_hash = crypt($pass, 'lepetitchaperonrouge');
+
+    $userManager = new UserManager();
+    $log = $userManager->login($login, $pass_hash);
+
+    if(!$log){
+        $message = 'L\'utilisateur ou le mot de passe sont incorrects';
+        require_once('./view/login.php');
+        return;
+    }
+
+    session_start();
+    $_SESSION['name'] = $name;
+
+    require_once('./view/ocado.php');
 }

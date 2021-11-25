@@ -36,5 +36,25 @@ class UserManager extends Manager{
         return TRUE;
     }
 
+    public function login($login, $pass){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("SELECT login, password FROM users WHERE login=:login");
+        $receve->execute([
+            'login' => $login,
+        ]);
+        $info = $receve->fetchAll();
+
+        if(!isset($info[0]['login']) or !isset($info[0]['password'])){
+            return FALSE;
+        }
+
+        if(hash_equals($pass, $info[0]['password'])){
+            return TRUE;
+        }
+
+
+        return FALSE;
+    }
+
   
 }

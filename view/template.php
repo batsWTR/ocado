@@ -20,8 +20,13 @@
         <div>O'cado</div>
         <nav>
             <ul>
+                
+                <li><a href="index.php?url=disconnect">Deconnection</a></li>
+                <?php
+                if(!$_SESSION['name']){ ?>
                 <li><a href="index.php?url=login">Se connecter</a></li>
                 <li><a href="index.php?url=signup">S'enregistrer</a></li>
+                <?php } ?>
                 <li><a href="index.php?url=contact">?</a></li>
             </ul>
         </nav>

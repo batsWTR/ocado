@@ -3,6 +3,13 @@
 <?php ob_start(); ?>
 
     <div id="content">
+    <?php
+    if(isset($message)){
+        ?>
+        <div class="alert alert-danger w-75 mx-auto my-4" role="alert">
+            <?= $message ?>
+        </div>
+    <?php } ?>
         <div id="login">
             <form action="index.php?url=connect" method="POST">
                 <h2>Connection</h2>
@@ -18,7 +25,7 @@
                     <label for="password">Mot de passe</label>
                     <input type="password" name="password" >
                 </div>
-                <button type="submit">Envoyer</button>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
             </form>
         </div>
     </div>

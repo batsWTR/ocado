@@ -8,6 +8,9 @@ $route = htmlspecialchars($_GET['url']);
 
 if($route == ''){
     accueil();
+}elseif($route == 'disconnect'){
+    disconnect();
+
 }elseif($route == 'login'){
     login();
 
