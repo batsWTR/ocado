@@ -18,11 +18,12 @@ class CardManager extends Manager{
         $receve = null;
     }
 
-    public function cardExist($name){
+    public function cardExist($name, $id){
         $db = $this->dbconnect();
-        $receve = $db->prepare("SELECT name FROM card WHERE name =:name");
+        $receve = $db->prepare("SELECT name FROM card WHERE name =:name AND user_id= :id");
         $receve->execute([
-            'name' => $name
+            'name' => $name,
+            'user_id' => $id
         ]);
         $result = $receve->fetchAll();
 

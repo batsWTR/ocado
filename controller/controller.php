@@ -110,8 +110,9 @@ function connect($name,$login,$pass){
 
     // create card if name does not exist
     $cardManager = new CardManager();
-    $result = $cardManager->cardExist($name);
     $id = $userManager->getUserId($login);
+    $result = $cardManager->cardExist($name, $id);
+    
     if(!$result){
         $cardManager->createCard($name, false, $id);
     }
