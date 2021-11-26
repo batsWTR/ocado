@@ -1,6 +1,9 @@
 
 
-<?php ob_start(); ?>
+<?php
+$style = '<link rel="stylesheet" type="text/css" href="./public/css/login.css">';
+
+ ob_start(); ?>
 
     <div id="content">
     <?php

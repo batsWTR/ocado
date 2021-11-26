@@ -6,24 +6,30 @@ class UserManager extends Manager{
 
     private function exist($login){
         $db = $this->dbconnect();
-        $receve = $db->prepare("SELECT login FROM users");
-        $receve->execute();
-        $users = $receve->fetchAll();
+        $receve = $db->prepare("SELECT login FROM users WHERE login = :login");
+        $receve->execute([
+            'login'=>$login
+        ]);
+        $user = $receve->fetchAll();
 
-
-        foreach($users as $user){
-            if($user['login'] === $login){
+        if($user[0]['login'] === $login){
+                $db = null;
+                $receve = null;
                 return TRUE;
             }
-        }
+
+        $db = null;
+        $receve = null;
         return FALSE;
     }
 
     public function userCreate($login, $pass, $name, $mail){
+        // test if login exist
         if($this->exist($login)){
             return FALSE;
         }
 
+        //create user
         $db = $this->dbconnect();
         $receve = $db->prepare("INSERT INTO users (password, login, email) VALUES (:password,:login,:email)");
         $receve->execute([
@@ -33,6 +39,9 @@ class UserManager extends Manager{
         ]) or die(require('./view/error.php'));
 
         $users = $receve->fetchAll();
+
+        $db = null;
+        $receve = null;
         return TRUE;
     }
 
@@ -45,16 +54,34 @@ class UserManager extends Manager{
         $info = $receve->fetchAll();
 
         if(!isset($info[0]['login']) or !isset($info[0]['password'])){
+            $db = null;
+            $receve = null;
             return FALSE;
         }
 
         if(hash_equals($pass, $info[0]['password'])){
+            $db = null;
+            $receve = null;
             return TRUE;
         }
 
 
+        $db = null;
+        $receve = null;
         return FALSE;
     }
 
+    public function getUserId($login){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("SELECT login, id FROM users WHERE login=:login");
+        $receve->execute([
+            'login' => $login,
+        ]);
+        $id = $receve->fetchAll();
+
+        $db = null;
+        $receve = null;
+        return $id[0]['id'];
+    }
   
 }

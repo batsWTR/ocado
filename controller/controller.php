@@ -1,11 +1,12 @@
-<?php
+<?php session_start();
 
 require("./model/UserManager.php");
+require("./model/CardManager.php");
 
 function accueil(){
-    session_start();
+    //session_start();
     if($_SESSION['name']){
-        require_once('./view/ocado.php');
+        ocado();
         return;
     }
 
@@ -13,7 +14,7 @@ function accueil(){
 }
 
 function disconnect(){
-    session_start();
+    //session_start();
     session_destroy();
     unset($_SESSION);
     require_once('./view/accueil.php');
@@ -62,17 +63,26 @@ function userCreation($login, $pass, $name, $mail){
 
     $userManager = new UserManager();
     $create = $userManager->userCreate($login,$pass_hash,$name,$mail);
+    
 
-    if(!$create){
+    if($create == false){
         $message= 'l utilisateur existe deja';
         require_once('./view/signup.php');
         return;
     }
 
-    session_start();
-    $_SESSION['name'] = $name;
+    // create card
+    $id = $userManager->getUserId($login);
+    $cardManager = new CardManager();
+    $cardManager->createCard($name, true, $id);
 
-    require_once('./view/ocado.php');
+
+
+    //session_start();
+    $_SESSION['name'] = $name;
+    $_SESSION['userId'] = $id;
+
+    ocado();
 
     
 }
@@ -85,6 +95,8 @@ function connect($name,$login,$pass){
 
     }
 
+    
+
     $pass_hash = crypt($pass, 'lepetitchaperonrouge');
 
     $userManager = new UserManager();
@@ -96,8 +108,26 @@ function connect($name,$login,$pass){
         return;
     }
 
-    session_start();
+    // create card if name does not exist
+    $cardManager = new CardManager();
+    $result = $cardManager->cardExist($name);
+    $id = $userManager->getUserId($login);
+    if(!$result){
+        $cardManager->createCard($name, false, $id);
+    }
+
     $_SESSION['name'] = $name;
+    $_SESSION['userId'] = $id;
+
+
+
+    ocado();
+}
+
+function ocado(){
+    $cardManager = new CardManager();
+    $results = $cardManager->getAllCards();
 
     require_once('./view/ocado.php');
+    return;
 }

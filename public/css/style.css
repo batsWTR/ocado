@@ -16,8 +16,13 @@ body{
 header{
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    align-items: baseline;
     background-color: pink;
+}
+
+.logo img{
+    width: 4.5rem;
+    height: auto;
 }
 nav ul{
     list-style: none;

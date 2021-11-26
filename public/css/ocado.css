@@ -1,0 +1,15 @@
+
+#content{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-shrink: 1;
+    flex-grow: 1;
+    color: black;
+}
+
+.card{
+    width: 25rem;
+    padding: 1rem;
+    margin: 1rem 1.5rem;
+}

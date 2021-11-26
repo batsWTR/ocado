@@ -1,6 +1,8 @@
 
+<?php
+$style = '<link rel="stylesheet" type="text/css" href="./public/css/login.css">';
 
-<?php ob_start(); ?>
+ ob_start(); ?>
 
 <div id="content">
 page contact
