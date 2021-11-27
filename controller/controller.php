@@ -111,14 +111,17 @@ function connect($name,$login,$pass){
     // create card if name does not exist
     $cardManager = new CardManager();
     $id = $userManager->getUserId($login);
+    print_r($id);
+    $_SESSION['name'] = $name;
+    $_SESSION['userId'] = $id;
+
     $result = $cardManager->cardExist($name, $id);
     
     if(!$result){
         $cardManager->createCard($name, false, $id);
     }
 
-    $_SESSION['name'] = $name;
-    $_SESSION['userId'] = $id;
+    
 
 
 

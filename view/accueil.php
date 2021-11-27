@@ -15,6 +15,7 @@ ob_start(); ?>
             <li>Chacun se connecte en entrant son prenom</li>
             <li>Remplissez votre liste de souhaits</li>
         </ol>
+        <a href="index.php?url=signup" class="btn btn-primary">Creer un compte</a>
     </div>
 </div>
 

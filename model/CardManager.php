@@ -19,13 +19,15 @@ class CardManager extends Manager{
     }
 
     public function cardExist($name, $id){
+
         $db = $this->dbconnect();
-        $receve = $db->prepare("SELECT name FROM card WHERE name =:name AND user_id= :id");
+        $receve = $db->prepare("SELECT `name`, `user_id` FROM `card` WHERE `name` = :name AND `user_id`= :id");
         $receve->execute([
             'name' => $name,
-            'user_id' => $id
+            'id' => $id,
         ]);
         $result = $receve->fetchAll();
+
 
         if($result[0]['name']){
             $db = null;
@@ -39,7 +41,8 @@ class CardManager extends Manager{
     }
 
     public function getAllCards(){
-        echo 'get all cards';
+//SELECT name, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE name = 'bapt' AND user_id = 50
+
         $db = $this->dbconnect();
         $receve = $db->prepare("SELECT name, isAdmin FROM card WHERE user_id = :id");
         $receve->execute([

@@ -24,14 +24,14 @@
         <nav>
             <ul>
                 
-                <li><a href="index.php?url=disconnect"><i class="fas fa-sign-out-alt"></i></a></li>
                 <?php
                 if(!$_SESSION['name']){ ?>
-                <li><a href="index.php?url=login"><i class="fas fa-sign-in-alt"></i></a></li>
-                <li><a href="index.php?url=signup">S'enregistrer</a></li>
-                <?php }else{
-                    echo '<li>'.$_SESSION['name'].'</li>';
-                } ?>
+                <li><a href="index.php?url=login">Connection</a></li>
+                <?php }else{ ?>
+                    <li><?= $_SESSION['name']?></li>
+                    <li><a href="index.php?url=disconnect">Deconnection</a></li>
+
+                <?php } ?>
                 <li><a href="index.php?url=contact"><i class="fas fa-question"></i></a></li>
             </ul>
         </nav>
