@@ -7,6 +7,9 @@ class Manager{
             return $db;
 
         }catch (Exception $e){
+            $e = 'Une erreur s\'est produite';
+            require_once('./view/error.php');
+            exit();
             return 0;
         }
 
