@@ -7,7 +7,7 @@ ob_start(); ?>
 <div id='content'>
     <div>
         <h3>Qu'est-ce que Ocado ?</h3>
-        <p>Ocado est un site de liste de cadeaux</p>
+        <p>Ocado est un site de liste de cadeaux a partager avec vos proches</p>
         <h3>Comment ca marche ?</h3>
         <ol>
             <li>Creez un compte pour la famille ou les amis</li>

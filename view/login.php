@@ -18,15 +18,15 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/login.css">'
                 <h2>Connection</h2>
                 <div>
                     <label for="name">Prenom</label>
-                    <input type="text" name="name" >
+                    <input type="text" name="name" required>
                 </div>
                 <div>
                     <label for="login">Utilisateur</label>
-                    <input type="text" name="login" >
+                    <input type="text" name="login" required>
                 </div>
                 <div>
                     <label for="password">Mot de passe</label>
-                    <input type="password" name="password" >
+                    <input type="password" name="password" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Envoyer</button>
             </form>
