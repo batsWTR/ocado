@@ -14,14 +14,27 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
     <?php 
     foreach($results as $result){?>
     <div class='card'>
-        <h4><?= $result['name'] ?></h4>
-        <h5>Je souhaite:</h5>
-        <ul>
-            
-        </ul>
-        <?php if($result['isAdmin'] && ($result['name'] == $_SESSION['name'])){ ?>
-            <button class="btn btn-primary">Admin</button>
+        <h4 class="card-header"><?= $result['name'] ?></h4>
+        <div class="card-body">
+            <h5>Je souhaite:</h5>
+            <ul>
+                <li>
+                    <div>
+                        <p>un robot tueur</p><span>75 euros</span>
+                    </div>
+                </li>
+            </ul>
+            <h5>Participants:</h5>
+            <div>
+                <div>
+                    <p>bats</p><span>10 euros</span>
+                </div>
+            </div>
+            <?php if($result['isAdmin'] && ($result['name'] == $_SESSION['name'])){ ?>
+            <a href="index.php/url=admin" class="btn btn-primary">Admin</a>
             <?php } ?>
+        </div>
+        
     </div>
     <?php } ?>
 </div>

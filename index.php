@@ -51,5 +51,7 @@ if($route == ''){
     $message = htmlspecialchars($_POST['message']);
 
     contactAction($name,$mail,$message);
+}elseif($route == 'admin'){
+    echo '<h1>Admin page</h1>';
 }
 

@@ -19,7 +19,7 @@
 </head>
 <body>
     <header>
-        <div class="logo"><a href="index.php"><img src="./public/images/gift.png" alt="logo"></a></div>
+        <div class="logo"><a href="index.php"><img src="./public/images/gift.png" title="Accueil" alt="logo"></a></div>
         <div>O'cado</div>
         <nav>
             <ul>
@@ -32,7 +32,7 @@
                     <li><a href="index.php?url=disconnect">Deconnection</a></li>
 
                 <?php } ?>
-                <li><a href="index.php?url=contact"><i class="fas fa-question"></i></a></li>
+                <li><a href="index.php?url=contact"><i title='Contact' class="fas fa-question"></i></a></li>
             </ul>
         </nav>
     </header>

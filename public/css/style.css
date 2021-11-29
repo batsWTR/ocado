@@ -16,7 +16,7 @@ body{
 header{
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     background-color: pink;
     margin-bottom: 2rem;
 }
@@ -25,6 +25,11 @@ header{
     width: 4.5rem;
     height: auto;
 }
+
+.logo img:hover{
+    animation: shake 0.2s;
+}
+
 nav ul{
     list-style: none;
     display: flex;
@@ -33,3 +38,11 @@ nav ul li{
     margin: 0 0.5rem;
 }
 
+@keyframes shake {
+    0%{transform: rotateZ(0deg);}
+    25%{transform: rotateZ(20deg);}
+    50%{transform: rotateZ(0deg);}
+    75%{transform: rotateZ(-20deg);}
+    100%{transform: rotateZ(0deg);}
+    
+}
