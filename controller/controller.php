@@ -135,3 +135,12 @@ function ocado(){
     require_once('./view/ocado.php');
     return;
 }
+
+function contactAction($name, $mail, $message){
+    
+    $mailBody = $name.' a l adresse '.$mail.' vous a envoye le message:\r'.$message;
+
+    echo $mailBody;
+
+    echo 'demande de contact';
+}

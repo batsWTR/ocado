@@ -50,6 +50,6 @@ if($route == ''){
     $mail = htmlspecialchars($_POST['mail']);
     $message = htmlspecialchars($_POST['message']);
 
-    echo 'demande de contact';
+    contactAction($name,$mail,$message);
 }
 
