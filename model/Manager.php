@@ -1,9 +1,12 @@
 <?php
+    require_once('./db_credentials.php');
+
 
 class Manager{
     protected function dbconnect(){
+
         try{
-            $db = new PDO('mysql:host=mysql-bawee.alwaysdata.net;dbname=bawee_ocado;charset=utf8mb4', 'bawee', 'baweeprojet7');
+            $db = new PDO($GLOBALS['DB_BASE'], $GLOBALS['DB_LOGIN'] ,$GLOBALS['DB_PASS'] );
             return $db;
 
         }catch (Exception $e){

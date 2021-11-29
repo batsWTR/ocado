@@ -31,7 +31,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                 </div>
             </div>
             <?php if($result['isAdmin'] && ($result['name'] == $_SESSION['name'])){ ?>
-            <a href="index.php/url=admin" class="btn btn-primary">Admin</a>
+            <a href="index.php?url=admin" class="btn btn-primary">Admin</a>
             <?php } ?>
         </div>
         

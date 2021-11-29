@@ -42,14 +42,30 @@ class CardManager extends Manager{
 
     public function getAllCards(){
 //SELECT name, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE name = 'bapt' AND user_id = 50
-
+//SELECT name, isAdmin FROM card WHERE user_id = :id
         $db = $this->dbconnect();
-        $receve = $db->prepare("SELECT name, isAdmin FROM card WHERE user_id = :id");
+        $receve = $db->prepare("SELECT name, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE user_id = :id
+        ");
         $receve->execute([
             'id' => $_SESSION['userId']
         ]);
-        $result = $receve->fetchAll();
+        $results = $receve->fetchAll();
 
-        return $result;
+        $ret = [
+            'name'=> '',
+        ];
+
+        foreach($results as $result){
+    
+        }
+
+        ?>
+        <pre>
+        <?php
+        print_r($results);
+        ?>
+        </pre>
+        <?php
+        return $results;
     }
 }

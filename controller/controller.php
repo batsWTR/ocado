@@ -111,7 +111,7 @@ function connect($name,$login,$pass){
     // create card if name does not exist
     $cardManager = new CardManager();
     $id = $userManager->getUserId($login);
-    print_r($id);
+
     $_SESSION['name'] = $name;
     $_SESSION['userId'] = $id;
 
@@ -131,8 +131,8 @@ function connect($name,$login,$pass){
 function ocado(){
     $cardManager = new CardManager();
     $results = $cardManager->getAllCards();
-
-    require_once('./view/ocado.php');
+    //print_r($results);
+    //require_once('./view/ocado.php');
     return;
 }
 
