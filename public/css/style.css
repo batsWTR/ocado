@@ -14,12 +14,11 @@ body{
 }
 
 header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: flex-end;
     background-color: pink;
     margin-bottom: 2rem;
 }
+
 
 .logo img{
     width: 4.5rem;

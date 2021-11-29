@@ -144,3 +144,7 @@ function contactAction($name, $mail, $message){
 
     echo 'demande de contact';
 }
+
+function admin(){
+    require_once('./view/admin.php');
+}

@@ -52,6 +52,6 @@ if($route == ''){
 
     contactAction($name,$mail,$message);
 }elseif($route == 'admin'){
-    echo '<h1>Admin page</h1>';
+    admin();
 }
 
