@@ -3,6 +3,7 @@
 require("./model/UserManager.php");
 require("./model/CardManager.php");
 
+
 function accueil(){
     //session_start();
     if($_SESSION['name']){
@@ -129,7 +130,13 @@ function connect($name,$login,$pass){
 }
 
 function ocado(){
+
+    if(!$_SESSION['name']){
+        header('Location:index.php');
+        exit();
+    }
     $cardManager = new CardManager();
+
     $results = $cardManager->getAllCards();
 
 
@@ -148,12 +155,35 @@ function contactAction($name, $mail, $message){
 }
 
 function admin(){
+    if(!$_SESSION['name']){
+        header('Location:index.php');
+        exit();
+    }
+
     require_once('./view/admin.php');
 }
 
 function addPresent($id, $description, $price, $link){
+    if(!$_SESSION['name']){
+        header('Location:index.php');
+        exit();
+    }
+
     $cardManager = new CardManager();
     $cardManager->addPresent($id, $description, $price, $link);
+
+    header('Location:index.php?url=ocado');
+    exit();
+}
+
+function removePresent($id){
+    if(!$_SESSION['name']){
+        header('Location:index.php');
+        exit();
+    }
+    
+    $cardManager = new CardManager();
+    $cardManager->removePresent($id);
 
     header('Location:index.php?url=ocado');
     exit();

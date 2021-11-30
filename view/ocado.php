@@ -24,7 +24,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                         <li><p><?= $present['description']?></p><div><span><?= $present['price']?>&#x20AC;</span>
                         <?php
                         if($key == $_SESSION['name']){ ?>
-                            <i class="far fa-trash-alt"></i></div></li>
+                            <a href='index.php?url=removePresent&id=<?=$present['giftId']?>'><i class="far fa-trash-alt"></i></a></div></li>
 
                        <?php }else{ ?>
                             </div></li>

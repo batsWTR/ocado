@@ -41,10 +41,10 @@ class CardManager extends Manager{
     }
 
     public function getAllCards(){
-//SELECT name, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE name = 'bapt' AND user_id = 50
-//SELECT name, isAdmin FROM card WHERE user_id = :id
+        //SELECT name, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE name = 'bapt' AND user_id = 50
+        //SELECT name, isAdmin FROM card WHERE user_id = :id
         $db = $this->dbconnect();
-        $receve = $db->prepare("SELECT name,card.id, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE user_id = :userId
+        $receve = $db->prepare("SELECT name,card.id, isAdmin, gift.id AS giftId, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE user_id = :userId
         ");
         $receve->execute([
             'userId' => $_SESSION['userId']
@@ -61,7 +61,7 @@ class CardManager extends Manager{
             ];
         }
         foreach($results as $result){
-            $present = ['description'=>$result['description'], 'price'=>$result['price'], 'link'=>$result['link']];
+            $present = ['description'=>$result['description'], 'price'=>$result['price'], 'link'=>$result['link'], 'giftId' => $result['giftId'],];
             $ret[$result['name']]['presents'][] = $present;
             
         }
@@ -77,6 +77,15 @@ class CardManager extends Manager{
             'desc' => $description,
             'price' => $price,
             'link' => $link
+        ]);
+        $results = $receve->fetchAll();
+    }
+
+    public function removePresent($id){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("DELETE FROM `gift` WHERE id= :id");
+        $receve->execute([
+            'id' => $id
         ]);
         $results = $receve->fetchAll();
     }

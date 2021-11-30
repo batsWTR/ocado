@@ -65,5 +65,8 @@ if($route == ''){
 
 }elseif($route == 'ocado'){
     ocado();
+}elseif($route == 'removePresent'){
+    $id = htmlspecialchars($_GET['id']);
+    removePresent($id);
 }
 
