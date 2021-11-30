@@ -37,12 +37,6 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
             <?php if($key == $_SESSION['name']){ ?>
                 <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAjout'>Ajouter</button>
             <?php } ?>
-            <h5>Participants:</h5>
-            <div>
-                <div>
-                    <p>bats</p><span>10 euros</span>
-                </div>
-            </div>
             <?php if($val['isAdmin'] && ($key == $_SESSION['name'])){ ?>
             <a href="index.php?url=admin" class="btn btn-primary">Admin</a>
             <?php } ?>

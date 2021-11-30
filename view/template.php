@@ -29,9 +29,9 @@
             <ul class="navbar-nav">  
                 <?php
                 if(!$_SESSION['name']){ ?>
-                <li><a href="index.php?url=login">Connection</a></li>
+                <li><a href="index.php?url=signup">Creer un compte</a></li>
                 <?php }else{ ?>
-                    <li><?= $_SESSION['name']?></li>
+                    <li>Bonjour <?= $_SESSION['name']?></li>
                     <li><a href="index.php?url=disconnect">Deconnection</a></li>
 
                 <?php } ?>

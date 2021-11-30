@@ -3,6 +3,16 @@
 require_once('./model/Manager.php');
 
 class CardManager extends Manager{
+    
+    public function deleteCard($cardId){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("DELETE FROM `card` WHERE id=:id AND isAdmin=0");
+        $receve->execute([
+            'id' => $cardId
+        ]);
+        $receve->fetchAll();
+
+    }
     public function createCard($name, $admin, $id){
 
         $db = $this->dbconnect();
@@ -69,11 +79,11 @@ class CardManager extends Manager{
         return $ret;
     }
 
-    public function addPresent($id, $description, $price, $link){
+    public function addPresent($cardId, $description, $price, $link){
         $db = $this->dbconnect();
         $receve = $db->prepare("INSERT INTO `gift`(`description`, `price`, `link`, `card_id`) VALUES (:desc, :price, :link, :id)");
         $receve->execute([
-            'id' => $id,
+            'id' => $cardId,
             'desc' => $description,
             'price' => $price,
             'link' => $link
@@ -81,11 +91,11 @@ class CardManager extends Manager{
         $results = $receve->fetchAll();
     }
 
-    public function removePresent($id){
+    public function removePresent($giftId){
         $db = $this->dbconnect();
         $receve = $db->prepare("DELETE FROM `gift` WHERE id= :id");
         $receve->execute([
-            'id' => $id
+            'id' => $giftId
         ]);
         $results = $receve->fetchAll();
     }

@@ -1,6 +1,8 @@
 <?php
 
-require('./controller/controller.php');
+require_once('./controller/controller.php');
+require_once('./controller/userController.php');
+
 
 $route = htmlspecialchars($_GET['url']);
 
