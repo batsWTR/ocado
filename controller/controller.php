@@ -152,9 +152,9 @@ function admin(){
 }
 
 function addPresent($id, $description, $price, $link){
-    echo 'add present';
     $cardManager = new CardManager();
     $cardManager->addPresent($id, $description, $price, $link);
 
-    ocado();
+    header('Location:index.php?url=ocado');
+    exit();
 }

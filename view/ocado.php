@@ -21,7 +21,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                 <?php
                 foreach($val['presents'] as $present){
                     if($present['description'] != ''){ ?>
-                        <li><p><?= $present['description']?></p><div><span><?= $present['price']?></span>
+                        <li><p><?= $present['description']?></p><div><span><?= $present['price']?>&#x20AC;</span>
                         <?php
                         if($key == $_SESSION['name']){ ?>
                             <i class="far fa-trash-alt"></i></div></li>
