@@ -18,7 +18,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/login.css">'
         </div>
         <div>
             <label for="message">Votre message</label>
-            <input type="textArea" name="message">
+            <textarea type="textArea" rows='5' name="message"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>

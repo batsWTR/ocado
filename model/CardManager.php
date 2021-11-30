@@ -51,18 +51,19 @@ class CardManager extends Manager{
         ]);
         $results = $receve->fetchAll();
 
-        $ret = [
-            'name'=> '',
-        ];
+        $ret = [];
 
         foreach($results as $result){
-    
+            $ret[$result['name']] = [
+                'isAdmin' => $result['isAdmin'],
+                'presents' => [],
+            ];
         }
 
         ?>
         <pre>
         <?php
-        print_r($results);
+        print_r($ret);
         ?>
         </pre>
         <?php

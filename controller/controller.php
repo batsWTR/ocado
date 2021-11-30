@@ -58,7 +58,7 @@ function userCreation($login, $pass, $name, $mail){
         return;
     }
 
-    $pass_hash = crypt($pass, 'lepetitchaperonrouge');
+    $pass_hash = md5($pass.'lepetitchaperonrouge');
    
 
     $userManager = new UserManager();
@@ -97,7 +97,7 @@ function connect($name,$login,$pass){
 
     
 
-    $pass_hash = crypt($pass, 'lepetitchaperonrouge');
+    $pass_hash = md5($pass.'lepetitchaperonrouge');
 
     $userManager = new UserManager();
     $log = $userManager->login($login, $pass_hash);
