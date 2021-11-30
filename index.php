@@ -53,5 +53,15 @@ if($route == ''){
     contactAction($name,$mail,$message);
 }elseif($route == 'admin'){
     admin();
+}elseif($route == 'addPresent'){
+    $description = htmlspecialchars($_POST['description']);
+    $id = htmlspecialchars($_POST['cardId']);
+    $price = htmlspecialchars($_POST['price']);
+    $link = htmlspecialchars($_POST['link']);
+
+
+    addPresent($id, $description, $price, $link);
+
+
 }
 

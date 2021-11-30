@@ -131,8 +131,10 @@ function connect($name,$login,$pass){
 function ocado(){
     $cardManager = new CardManager();
     $results = $cardManager->getAllCards();
-    //print_r($results);
-    //require_once('./view/ocado.php');
+
+
+
+    require_once('./view/ocado.php');
     return;
 }
 
@@ -147,4 +149,12 @@ function contactAction($name, $mail, $message){
 
 function admin(){
     require_once('./view/admin.php');
+}
+
+function addPresent($id, $description, $price, $link){
+    echo 'add present';
+    $cardManager = new CardManager();
+    $cardManager->addPresent($id, $description, $price, $link);
+
+    ocado();
 }

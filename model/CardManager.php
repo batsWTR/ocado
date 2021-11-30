@@ -44,10 +44,10 @@ class CardManager extends Manager{
 //SELECT name, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE name = 'bapt' AND user_id = 50
 //SELECT name, isAdmin FROM card WHERE user_id = :id
         $db = $this->dbconnect();
-        $receve = $db->prepare("SELECT name, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE user_id = :id
+        $receve = $db->prepare("SELECT name,card.id, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE user_id = :userId
         ");
         $receve->execute([
-            'id' => $_SESSION['userId']
+            'userId' => $_SESSION['userId']
         ]);
         $results = $receve->fetchAll();
 
@@ -56,17 +56,29 @@ class CardManager extends Manager{
         foreach($results as $result){
             $ret[$result['name']] = [
                 'isAdmin' => $result['isAdmin'],
+                'cardId' => $result['id'],
                 'presents' => [],
             ];
         }
+        foreach($results as $result){
+            $present = ['description'=>$result['description'], 'price'=>$result['price'], 'link'=>$result['link']];
+            $ret[$result['name']]['presents'][] = $present;
+            
+        }
 
-        ?>
-        <pre>
-        <?php
-        print_r($ret);
-        ?>
-        </pre>
-        <?php
-        return $results;
+        return $ret;
+    }
+
+    public function addPresent($id, $description, $price, $link){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("INSERT INTO `gift`(`description`, `price`, `link`, `card_id`) VALUES (:desc, :price, :link, :id)");
+        $receve->execute([
+            'id' => $id,
+            'desc' => $description,
+            'price' => $price,
+            'link' => $link
+        ]);
+        $results = $receve->fetchAll();
     }
 }
+
