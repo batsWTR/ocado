@@ -15,10 +15,9 @@ function accueil(){
 }
 
 function disconnect(){
-    //session_start();
     session_destroy();
     unset($_SESSION);
-    require_once('./view/accueil.php');
+    header('Location:index.php');
 }
 
 function login(){
@@ -94,4 +93,18 @@ function removePresent($id){
 
     header('Location:index.php?url=ocado');
     exit();
+}
+
+function deleteCard($cardId){
+    if(!$_SESSION['name']){
+        header('Location:index.php');
+        exit();
+    }
+}
+
+function deleteUser($userId){
+    if(!$_SESSION['name']){
+        header('Location:index.php');
+        exit();
+    }
 }

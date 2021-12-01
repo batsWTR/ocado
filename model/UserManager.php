@@ -23,6 +23,15 @@ class UserManager extends Manager{
         return FALSE;
     }
 
+    public function deleteUser($userId){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("DELETE FROM `user` WHERE id=:id");
+        $receve->execute([
+            'id' => $userId
+        ]);
+        $receve->fetchAll();
+    }
+
     public function userCreate($login, $pass, $name, $mail){
         // test if login exist
         if($this->exist($login)){
