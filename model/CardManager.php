@@ -4,11 +4,12 @@ require_once('./model/Manager.php');
 
 class CardManager extends Manager{
     
-    public function deleteCard($cardId){
+    public function deleteCard($name, $userId){
         $db = $this->dbconnect();
-        $receve = $db->prepare("DELETE FROM `card` WHERE id=:id AND isAdmin=0");
+        $receve = $db->prepare("DELETE FROM `card` WHERE `user_id`=:id AND `name`=:name AND isAdmin=0");
         $receve->execute([
-            'id' => $cardId
+            'id' => $userId,
+            'name' => $name
         ]);
         $receve->fetchAll();
 

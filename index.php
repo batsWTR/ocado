@@ -72,5 +72,7 @@ if($route == ''){
     removePresent($id);
 }elseif($route == 'deleteUser'){
     deleteUser($_SESSION['userId']);    
+}elseif($route == 'deleteCard'){
+    deleteCard($_SESSION['name'], $_SESSION['userId']);
 }
 

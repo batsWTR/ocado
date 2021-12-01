@@ -87,10 +87,19 @@ function removePresent($id){
     exit();
 }
 
-function deleteCard($cardId){
+function deleteCard($name, $userId){
     if(!$_SESSION['name']){
         header('Location:index.php');
         exit();
     }
+
+    $cardManager = new CardManager();
+    $cardManager->deleteCard($name, $userId);
+
+    session_destroy();
+    unset($_SESSION);
+
+    header('Location:index.php');
+    exit();
 }
 
