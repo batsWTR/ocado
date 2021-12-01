@@ -97,3 +97,24 @@ function connect($name,$login,$pass){
     header('Location:index.php?url=ocado');
     exit();
 }
+
+function admin(){
+    if(!$_SESSION['name']){
+        header('Location:index.php');
+        exit();
+    }
+
+    require_once('./view/admin.php');
+}
+
+function deleteUser($userId){
+    if(!$_SESSION['name']){
+        header('Location:index.php');
+        exit();
+    }
+    $userManager = new UserManager();
+    $userManager->deleteUser($userId);
+    session_destroy();
+    unset($_SESSION);
+    header('Location:index.php');
+}

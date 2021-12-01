@@ -13,8 +13,14 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
 <div id='content'>
     <?php 
     foreach($results as $key=>$val){?>
-    <div class='card'>
-        <h4 class="card-header"><?= $key ?></h4>
+    <div class='card my-3'>
+        <div class="card-header">
+            <h4><?= $key ?></h4>
+            <? if($_SESSION['name'] == $key){ ?>
+                <a href="#">Supprimer</a>
+           <? } ?>  
+        </div>
+    
         <div class="card-body">
             <h5>Je souhaite:</h5>
             <ul>
@@ -56,21 +62,21 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                 <form id='formAdd' action="index.php?url=addPresent" method="POST">
                     <div>
                         <label for="description">Description</label>
-                        <input type='text' name='description' required>
+                        <input type='text' name='description' size='35' required>
                     </div>
                     <div>
                         <label for="price">Prix</label>
-                        <input type='number' name='price'>
+                        <input type='number' name='price' size='5'>
                     </div>
                     <div>
                         <label for="link">Lien</label>
-                        <input type='text' name='link'>
+                        <input type='text' name='link' size='35'>
                         <input type="text" hidden value= <?=$results[$_SESSION["name"]]['cardId']; ?> name='cardId'>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-            <button type='submit' class="btn btn-danger" form='formAdd'>Ajouter</button>
+            <button type='submit' class="btn btn-success" form='formAdd'>Ajouter</button>
             <button type='button' class="btn" data-bs-dismiss='modal'>Annuler</button>
             </div>
         </div>

@@ -25,7 +25,7 @@ class UserManager extends Manager{
 
     public function deleteUser($userId){
         $db = $this->dbconnect();
-        $receve = $db->prepare("DELETE FROM `user` WHERE id=:id");
+        $receve = $db->prepare("DELETE FROM `users` WHERE id=:id");
         $receve->execute([
             'id' => $userId
         ]);

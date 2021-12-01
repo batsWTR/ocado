@@ -21,7 +21,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/admin.css">'
             <p>Attention si vous supprimez votre compte, ceci supprimera tous les utilisateurs lies a ce compte</p>
         </div>
         <div class="modal-footer">
-            <form action="index.php" method='POST'>
+            <form action="index.php?url=deleteUser" method="POST">
                 <button type='submit' class="btn btn-danger">Supprimer</button>
             </form>
             <button type='button' class="btn" data-bs-dismiss='modal'>Annuler</button>

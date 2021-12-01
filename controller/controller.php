@@ -60,14 +60,6 @@ function contactAction($name, $mail, $message){
     echo 'demande de contact';
 }
 
-function admin(){
-    if(!$_SESSION['name']){
-        header('Location:index.php');
-        exit();
-    }
-
-    require_once('./view/admin.php');
-}
 
 function addPresent($id, $description, $price, $link){
     if(!$_SESSION['name']){
@@ -102,9 +94,3 @@ function deleteCard($cardId){
     }
 }
 
-function deleteUser($userId){
-    if(!$_SESSION['name']){
-        header('Location:index.php');
-        exit();
-    }
-}

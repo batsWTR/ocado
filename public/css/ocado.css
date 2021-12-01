@@ -11,13 +11,27 @@
 .card{
     width: 25rem;
     padding: 1rem;
-    margin: 1rem 1.5rem;
+    margin;
+}
+
+.card-header{
+    display: flex;
+    justify-content: space-between;
 }
 
 .card ul{
     list-style-type: none;
 }
 .card li{
+    display: flex;
+    justify-content: space-between;
+}
+
+#modalAjout{
+    color: black;
+}
+
+#formAdd div{
     display: flex;
     justify-content: space-between;
 }

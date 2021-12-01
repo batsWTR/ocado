@@ -70,5 +70,7 @@ if($route == ''){
 }elseif($route == 'removePresent'){
     $id = htmlspecialchars($_GET['id']);
     removePresent($id);
+}elseif($route == 'deleteUser'){
+    deleteUser($_SESSION['userId']);    
 }
 

@@ -1,4 +1,10 @@
 
+
+ @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+
 *{
     margin: 0;
     padding: 0;
@@ -11,6 +17,7 @@ body{
     background-size: cover;
     background-position: bottom right;
     min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
 }
 
 header{
@@ -27,6 +34,10 @@ header{
 
 .logo img:hover{
     animation: shake 0.2s;
+}
+
+header h1{
+    font-family: 'Kaushan Script', cursive;
 }
 
 nav ul{
