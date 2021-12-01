@@ -28,10 +28,10 @@ class CardManager extends Manager{
         $receve = null;
     }
 
-    public function cardExist($name, $id){
+    public function cardInfo($name, $id){
 
         $db = $this->dbconnect();
-        $receve = $db->prepare("SELECT `name`, `user_id` FROM `card` WHERE `name` = :name AND `user_id`= :id");
+        $receve = $db->prepare("SELECT `name`, `user_id`, `isAdmin` FROM `card` WHERE `name` = :name AND `user_id`= :id");
         $receve->execute([
             'name' => $name,
             'id' => $id,
@@ -42,7 +42,7 @@ class CardManager extends Manager{
         if($result[0]['name']){
             $db = null;
             $receve = null;
-            return TRUE;
+            return $result;
         }
 
         $db = null;

@@ -16,7 +16,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
     <div class='card my-3'>
         <div class="card-header">
             <h4><?= $key ?></h4>
-            <? if($_SESSION['name'] == $key){ ?>
+            <? if($_SESSION['name'] == $key && !$_SESSION['isAdmin']){ ?>
                 <a href="#">Supprimer</a>
            <? } ?>  
         </div>
@@ -43,7 +43,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
             <?php if($key == $_SESSION['name']){ ?>
                 <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAjout'>Ajouter</button>
             <?php } ?>
-            <?php if($val['isAdmin'] && ($key == $_SESSION['name'])){ ?>
+            <?php if($_SESSION['isAdmin'] && ($key == $_SESSION['name'])){ ?>
             <a href="index.php?url=admin" class="btn btn-primary">Admin</a>
             <?php } ?>
         </div>

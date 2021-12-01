@@ -53,6 +53,7 @@ function userCreation($login, $pass, $name, $mail){
     //session_start();
     $_SESSION['name'] = $name;
     $_SESSION['userId'] = $id;
+    $_SESSION['isAdmin'] = true;
 
     header('Location:index.php?url=ocado');
     exit();
@@ -88,11 +89,16 @@ function connect($name,$login,$pass){
     $_SESSION['name'] = $name;
     $_SESSION['userId'] = $id;
 
-    $result = $cardManager->cardExist($name, $id);
+
+    $result = $cardManager->cardInfo($name, $id);
 
     if(!$result){
         $cardManager->createCard($name, false, $id);
+        $_SESSION['isAdmin'] = false;
+    }else{
+        $_SESSION['isAdmin'] = $result[0]['isAdmin'];
     }
+
 
     header('Location:index.php?url=ocado');
     exit();
