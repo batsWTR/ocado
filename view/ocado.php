@@ -51,6 +51,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
     </div>
     <?php } ?>
 </div>
+<!---   Modal add present  --->
 <div class='modal fade' id="modalAjout">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -62,7 +63,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                 <form id='formAdd' action="index.php?url=addPresent" method="POST">
                     <div>
                         <label for="description">Description</label>
-                        <input type='text' name='description' size='35' required>
+                        <input type='text' name='description' size='21' required>
                     </div>
                     <div>
                         <label for="price">Prix</label>
@@ -70,7 +71,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                     </div>
                     <div>
                         <label for="link">Lien</label>
-                        <input type='text' name='link' size='35'>
+                        <input type='text' name='link' size='21'>
                         <input type="text" hidden value= <?=$results[$_SESSION["name"]]['cardId']; ?> name='cardId'>
                     </div>
                 </form>

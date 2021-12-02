@@ -32,7 +32,7 @@
                 <li><a href="index.php?url=signup">Creer un compte</a></li>
                 <?php }else{ ?>
                     <li>Bonjour <?= $_SESSION['name']?></li>
-                    <li><a href="index.php?url=disconnect">Deconnection</a></li>
+                    <li><a href="index.php?url=disconnect">Deconnexion</a></li>
 
                 <?php } ?>
                 <li><a href="index.php?url=contact"><i title='Contact' class="fas fa-question"></i></a></li>

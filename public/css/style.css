@@ -13,7 +13,7 @@
 
 body{
     background: url('../images/back.jpg') no-repeat;
-    color: whitesmoke;
+    color: #483b48;
     background-size: cover;
     background-position: bottom right;
     min-height: 100vh;
@@ -22,7 +22,7 @@ body{
 
 header{
     justify-content: flex-end;
-    background-color: pink;
+    background-color: #edcaed;
     margin-bottom: 2rem;
 }
 
@@ -46,6 +46,18 @@ nav ul{
 }
 nav ul li{
     margin: 0 0.5rem;
+}
+
+.alert{
+    z-index: 100;
+}
+
+.modal-content{
+    background-color: #e7d1e6;
+}
+.modal-header{
+    background-color: #f4c3f4;
+
 }
 
 @keyframes shake {

@@ -14,13 +14,12 @@
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-40%);
-    background-color: pink;
+    background-color: #e7d1e6;
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    box-shadow: 5px -5px rgb(255, 173, 187);
 }
 
 #login h2{

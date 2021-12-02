@@ -11,11 +11,14 @@
 .card{
     width: 25rem;
     padding: 1rem;
+    background-color: #e7d1e6;
+    border-radius: 1rem;
 }
 
 .card-header{
     display: flex;
     justify-content: space-between;
+    background-color: #f4c3f4;
 }
 
 .card ul{
