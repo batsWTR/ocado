@@ -2,6 +2,7 @@
 
 require_once("./model/UserManager.php");
 require_once("./model/CardManager.php");
+require_once("./model/InputManager.php");
 
 
 function accueil(){

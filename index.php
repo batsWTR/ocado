@@ -4,7 +4,7 @@ require_once('./controller/controller.php');
 require_once('./controller/userController.php');
 
 
-$route = htmlspecialchars($_GET['url']);
+$route = InputManager::validate($_GET['url']);
 
 
 
@@ -22,17 +22,17 @@ if($route == ''){
     contact();
 
 }elseif($route == 'createUser'){
-    $login = htmlspecialchars($_POST['login']);
-    $name = htmlspecialchars($_POST['name']);
-    $mail = htmlspecialchars($_POST['mail']);
-    $pass = htmlspecialchars($_POST['password']);
+    $login = InputManager::validate($_POST['login']);
+    $name = InputManager::validate($_POST['name']);
+    $mail = InputManager::validate($_POST['mail']);
+    $pass = InputManager::validate($_POST['password']);
 
     userCreation($login, $pass, $name, $mail);
 
 }elseif($route == 'connect'){
-    $name = htmlspecialchars($_POST['name']);
-    $login = htmlspecialchars($_POST['login']);
-    $pass = htmlspecialchars($_POST['password']);
+    $name = InputManager::validate($_POST['name']);
+    $login = InputManager::validate($_POST['login']);
+    $pass = InputManager::validate($_POST['password']);
 
  
     connect($name,$login,$pass);
@@ -48,18 +48,18 @@ if($route == ''){
         return;
     }
 
-    $name = htmlspecialchars($_POST['name']);
-    $mail = htmlspecialchars($_POST['mail']);
-    $message = htmlspecialchars($_POST['message']);
+    $name = InputManager::validate($_POST['name']);
+    $mail = InputManager::validate($_POST['mail']);
+    $message = InputManager::validate($_POST['message']);
 
     contactAction($name,$mail,$message);
 }elseif($route == 'admin'){
     admin();
 }elseif($route == 'addPresent'){
-    $description = htmlspecialchars($_POST['description']);
-    $id = htmlspecialchars($_POST['cardId']);
-    $price = htmlspecialchars($_POST['price']);
-    $link = htmlspecialchars($_POST['link']);
+    $description = InputManager::validate($_POST['description']);
+    $id = InputManager::validate($_POST['cardId']);
+    $price = InputManager::validate($_POST['price']);
+    $link = InputManager::validate($_POST['link']);
 
 
     addPresent($id, $description, $price, $link);
@@ -67,11 +67,14 @@ if($route == ''){
 
 }elseif($route == 'ocado'){
     ocado();
+
 }elseif($route == 'removePresent'){
-    $id = htmlspecialchars($_GET['id']);
+    $id = InputManager::validate($_GET['id']);
     removePresent($id);
+
 }elseif($route == 'deleteUser'){
-    deleteUser($_SESSION['userId']);    
+    deleteUser($_SESSION['userId']); 
+       
 }elseif($route == 'deleteCard'){
     deleteCard($_SESSION['name'], $_SESSION['userId']);
 }

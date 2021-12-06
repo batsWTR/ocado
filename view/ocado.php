@@ -12,6 +12,12 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
 
 <div id='content'>
     <?php 
+     if(isset($message)){
+        ?>
+        <div class="alert alert-danger w-75 mx-auto my-4" role="alert">
+            <?= $message ?>
+        </div>
+    <?php }
     foreach($results as $key=>$val){?>
     <div class='card my-3'>
         <div class="card-header">
