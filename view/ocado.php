@@ -32,20 +32,28 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
             <h5>Je souhaite:</h5>
             <ul>
                 <?php
-                foreach($val['presents'] as $present){
-                    if($present['description'] != ''){ ?>
-                        <li><p><?= $present['description']?></p><div><span><?= $present['price']?>&#x20AC;</span>
-                        <?php
-                        if($key == $_SESSION['name']){ ?>
-                            <a href='index.php?url=removePresent&id=<?=$present['giftId']?>'><i class="far fa-trash-alt"></i></a></div></li>
+                foreach($val['presents'] as $present){ ?>
+                        <?php if(!$present['description'] == ''){ ?>
+                        <li>
+                            <div>
+                                <p><?= $present['description']?></p>
+                                <div>
+                                    <span><?= $present['price']?>&#x20AC;</span>
+                                    <?php if($key == $_SESSION['name']){ ?>
+                                    <a href='index.php?url=removePresent&id=<?=$present['giftId']?>'><i class="far fa-trash-alt"></i></a>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                            <?php if(!$present['link'] == ''){ ?>
+                            <div>
+                                
+                               <a href="<?= $present['link'] ?>">Lien</a>
+                            </div>
+                            <?php } ?>
+                        </li>
+                        <?php } ?>
+                <?php } ?>
 
-                       <?php }else{ ?>
-                            </div></li>
-                       <?php }
-
-                    }
-                }
-                ?>
             </ul>
             <?php if($key == $_SESSION['name']){ ?>
                 <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAjout'>Ajouter</button>
