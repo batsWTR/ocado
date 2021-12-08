@@ -47,7 +47,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                             <?php if(!$present['link'] == ''){ ?>
                             <div>
                                 
-                               <a href="<?= $present['link'] ?>">Lien</a>
+                               <a href="<?= $present['link'] ?>" target="_blank">Lien</a>
                             </div>
                             <?php } ?>
                         </li>
