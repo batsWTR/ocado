@@ -18,21 +18,22 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/login.css">'
     <div id="login">
         <form action="index.php?url=createUser" method="POST">
             <h2>Creer un compte</h2>
+            <p>Champs obligatoires *</p>
             <div>
                 <label for="name">Votre prenom</label>
-            <input type="text" name="name" required>
+            <input type="text" name="name" required>*
             </div>
             <div>
                 <label for="login">Utilisateur</label>
-                <input type="text" name="login" required>
+                <input type="text" name="login" required>*
             </div>
             <div>
                 <label for="mail">Votre email</label>
-                <input type="email" name="mail" required>
+                <input type="email" name="mail" required>*
             </div>
             <div>
                 <label for="password">Mot de passe</label>
-                <input type="password" name="password" required>
+                <input type="password" name="password" required>*
             </div>
             <button type="submit" class="btn btn-primary">Envoyer</button>
         </form>

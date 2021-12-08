@@ -57,10 +57,11 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
             <?php } ?>
             <?php if($key != $_SESSION['name']){ ?>
                 <button type='button' class='btn btn-primary'>Je participe</button>
+                <div>
+                    participation
+                </div>
             <?php } ?>
-            <div>
-                participation
-            </div>
+            
             <?php if($_SESSION['isAdmin'] && ($key == $_SESSION['name'])){ ?>
             <a href="index.php?url=admin" class="btn btn-primary">Admin</a>
             <?php } ?>
@@ -77,10 +78,11 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                 <h5 class="modal-title">Ajouter un cadeau<h5>
                 <button type='button' class='btn-clos' data-bs-dismiss='modal'></button>
             </div>
+            <p>Champs obligatoires *</p>
             <div class="modal-body">
                 <form id='formAdd' action="index.php?url=addPresent" method="POST">
                     <div>
-                        <label for="description">Description</label>
+                        <label for="description">Description*</label>
                         <input type='text' name='description' size='21' required>
                     </div>
                     <div>

@@ -25,6 +25,7 @@ ob_start(); ?>
         </ol>
         <a href="index.php?url=login" class="btn btn-primary">Se connecter</a>
     </div>
+    
 </div>
 
 <?php $content = ob_get_clean(); ?>
