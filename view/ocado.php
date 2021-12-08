@@ -23,9 +23,9 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
     <div class='card my-3'>
         <div class="card-header">
             <h4><?= $key ?></h4>
-            <? if($_SESSION['name'] == $key && !$_SESSION['isAdmin']){ ?>
+            <?php if($_SESSION['name'] == $key && !$_SESSION['isAdmin']){ ?>
                 <a href="index.php?url=deleteCard">Supprimer</a>
-           <? } ?>  
+           <?php } ?>  
         </div>
     
         <div class="card-body">
