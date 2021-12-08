@@ -56,13 +56,14 @@ if($route == ''){
 }elseif($route == 'admin'){
     admin();
 }elseif($route == 'addPresent'){
+
     $description = InputManager::validate($_POST['description']);
-    $id = InputManager::validate($_POST['cardId']);
+    $cardId = InputManager::validate($_POST['cardId']);
     $price = InputManager::validate($_POST['price']);
     $link = InputManager::validate($_POST['link']);
 
 
-    addPresent($id, $description, $price, $link);
+    addPresent($cardId, $description, $price, $link);
 
 
 }elseif($route == 'ocado'){

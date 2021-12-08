@@ -36,7 +36,7 @@ function contact(){
 
 
 
-function ocado(){
+function ocado($mes = null){
 
     if(!$_SESSION['name']){
         header('Location:index.php');
@@ -47,6 +47,7 @@ function ocado(){
     $results = $cardManager->getAllCards();
 
 
+    $message = $mes;
 
     require_once('./view/ocado.php');
     return;
@@ -62,17 +63,31 @@ function contactAction($name, $mail, $message){
 }
 
 
-function addPresent($id, $description, $price, $link){
+function addPresent($cardId, $description, $price, $link){
     if(!$_SESSION['name']){
         header('Location:index.php');
         exit();
     }
 
-    $cardManager = new CardManager();
-    $cardManager->addPresent($id, $description, $price, $link);
+    $message = '';
 
-    header('Location:index.php?url=ocado');
-    exit();
+    if(!InputManager::checkPrice($price)){
+        $message = 'Le prix ne doit pas dépasser 100 000 euros';
+    }
+    if(!InputManager::checkInput($description)){
+        $message = 'La description doit contenir entre 2 et 255 caractères';
+    }
+    if(!InputManager::checkLink($link)){
+        $message = 'Le champs doit contenir un lien ou resteer vide';
+    }
+
+    if($message == ''){
+        $cardManager = new CardManager();
+        $cardManager->addPresent($cardId, $description, $price, $link);
+    }
+
+    ocado($message);
+    return;
 }
 
 function removePresent($id){
