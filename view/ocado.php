@@ -36,20 +36,17 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                         <?php if(!$present['description'] == ''){ ?>
                         <li>
                             <div>
-                                <p><?= $present['description']?></p>
-                                <div>
-                                    <span><?= $present['price']?>&#x20AC;</span>
-                                    <?php if($key == $_SESSION['name']){ ?>
-                                    <a href='index.php?url=removePresent&id=<?=$present['giftId']?>'><i class="far fa-trash-alt"></i></a>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                            <?php if(!$present['link'] == ''){ ?>
+                                <span><?= $present['description']?></span>
+                                <?php if(!$present['link'] == ''){ ?>   
+                                <a href="<?= $present['link'] ?>" target="_blank">Lien</a>
+                                <?php } ?>
+                            </div>             
                             <div>
-                                
-                               <a href="<?= $present['link'] ?>" target="_blank">Lien</a>
-                            </div>
-                            <?php } ?>
+                                <span><?= $present['price']?>&#x20AC;</span>
+                                <?php if($key == $_SESSION['name']){ ?>
+                                <a href='index.php?url=removePresent&id=<?=$present['giftId']?>'><i class="far fa-trash-alt"></i></a>
+                                <?php } ?>
+                            </div>    
                         </li>
                         <?php } ?>
                 <?php } ?>
@@ -58,6 +55,12 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
             <?php if($key == $_SESSION['name']){ ?>
                 <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAjout'>Ajouter</button>
             <?php } ?>
+            <?php if($key != $_SESSION['name']){ ?>
+                <button type='button' class='btn btn-primary'>Je participe</button>
+            <?php } ?>
+            <div>
+                participation
+            </div>
             <?php if($_SESSION['isAdmin'] && ($key == $_SESSION['name'])){ ?>
             <a href="index.php?url=admin" class="btn btn-primary">Admin</a>
             <?php } ?>

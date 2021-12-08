@@ -5,6 +5,14 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/login.css">'
 ob_start(); ?>
 
 <div id='content'>
+    <?php 
+     if(isset($message) && $message != ''){
+        ?>
+        <div class="alert fade show alert-dismissible alert-danger w-75 mx-auto my-4" role="alert">
+            <?= $message ?>
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    <?php } ?>
     <div>
         <h3>Qu'est-ce que Ocado ?</h3>
         <p>Ocado est un site de liste de cadeaux a partager avec vos proches</p>

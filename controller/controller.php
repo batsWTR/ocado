@@ -5,13 +5,13 @@ require_once("./model/CardManager.php");
 require_once("./model/InputManager.php");
 
 
-function accueil(){
+function accueil($msg = null){
     //session_start();
     if($_SESSION['name']){
         header('Location:index.php?url=ocado');
         return;
     }
-
+    $message = $msg;
     require('./view/accueil.php');
 }
 
@@ -115,7 +115,7 @@ function deleteCard($name, $userId){
     session_destroy();
     unset($_SESSION);
 
-    header('Location:index.php');
-    exit();
+    $message = 'Votre carte a ete supprime';
+    require_once('./view/accueil.php');
 }
 

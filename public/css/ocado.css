@@ -26,15 +26,10 @@
 }
 .card-body li{
     display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-}
-.card-body li div{
-    display: flex;
     justify-content: space-between;
-    white-space: nowrap;
-    overflow: hidden;
+
 }
+
 
 #modalAjout{
     color: black;
