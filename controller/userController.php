@@ -110,6 +110,13 @@ function admin(){
         exit();
     }
 
+    $userManager = new UserManager();
+    $log = $userManager->getUserInfo($_SESSION['userId']);
+
+    $info = array('id'=> $_SESSION['userId'], 'name'=> $_SESSION['name'], 'login'=> $log[0]['login'], 'email'=> $log[0]['email'], 'creation'=> $log[0]['creation_date']);
+
+    //print_r($info);
+    
     require_once('./view/admin.php');
 }
 

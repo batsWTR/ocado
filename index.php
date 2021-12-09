@@ -53,6 +53,7 @@ if($route == ''){
     $message = InputManager::validate($_POST['message']);
 
     contactAction($name,$mail,$message);
+    
 }elseif($route == 'admin'){
     admin();
 }elseif($route == 'addPresent'){

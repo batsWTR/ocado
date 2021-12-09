@@ -92,5 +92,16 @@ class UserManager extends Manager{
         $receve = null;
         return $id[0]['id'];
     }
+
+    public function getUserInfo($userId){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("SELECT login, email, creation_date FROM users WHERE id=:id");
+        $receve->execute([
+            'id' => $userId,
+        ]);
+        $info = $receve->fetchAll();
+
+        return $info;
+    }
   
 }
