@@ -6,10 +6,18 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/admin.css">'
 
 <div id="content">
     <div class="card">
-        <h2 class="card-header">Bats</h2>
-        <button class="btn btn-danger" data-bs-toggle='modal' data-bs-target='#modalSuppr'>Supprimer le compte</button>
+        <h2 class="card-header"><?= $info['name'] ?></h2>
+        <div class="card-body">
+            <p><?= $info['login'] ?></p>
+            <p><?= $info['email'] ?></p>
+            <p><?= $info['creation'] ?></p>
+        </div>
+        <div class="card-footer">
+            <button class="btn btn-danger" data-bs-toggle='modal' data-bs-target='#modalSuppr'>Supprimer le compte</button>
+        </div>   
     </div>
 </div>
+
 <div class="modal fade" id='modalSuppr'>
     <div class="modal-dialog">
         <div class="modal-content">
