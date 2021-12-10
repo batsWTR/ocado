@@ -79,5 +79,13 @@ if($route == ''){
        
 }elseif($route == 'deleteCard'){
     deleteCard($_SESSION['name'], $_SESSION['userId']);
+
+}elseif($route == 'participer'){
+    if(!isset($_GET['id'])){
+        ocado();
+    }
+
+
+    participate($_GET['id']);
 }
 

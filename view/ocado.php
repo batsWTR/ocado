@@ -36,7 +36,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                         <?php if(!$present['description'] == ''){ ?>
                         <li>
                             <div>
-                                <span><?= $present['description']?></span>
+                                <span id='description'><?= $present['description']?></span>
                                 <?php if(!$present['link'] == ''){ ?>   
                                 <a href="<?= $present['link'] ?>" target="_blank">Lien</a>
                                 <?php } ?>
@@ -56,7 +56,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                 <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAjout'>Ajouter</button>
             <?php } ?>
             <?php if($key != $_SESSION['name']){ ?>
-                <button type='button' class='btn btn-primary'>Je participe</button>
+                <a href='index.php?url=participer&id=<?= $val['cardId'] ?> ' class='btn btn-primary'>Je participe</a>
                 <div>
                     participation
                 </div>

@@ -8,9 +8,9 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/admin.css">'
     <div class="card">
         <h2 class="card-header"><?= $info['name'] ?></h2>
         <div class="card-body">
-            <p><?= $info['login'] ?></p>
-            <p><?= $info['email'] ?></p>
-            <p><?= $info['creation'] ?></p>
+            <p>Utilisateur: <?= $info['login'] ?></p>
+            <p>Email: <?= $info['email'] ?></p>
+            <p>Date de creation: <?= $info['creation'] ?></p>
         </div>
         <div class="card-footer">
             <button class="btn btn-danger" data-bs-toggle='modal' data-bs-target='#modalSuppr'>Supprimer le compte</button>

@@ -119,3 +119,9 @@ function deleteCard($name, $userId){
     require_once('./view/accueil.php');
 }
 
+function participate($cardId){
+    // get info for card from db
+    // display page
+    echo '<h1>participer</h1>';
+}
+

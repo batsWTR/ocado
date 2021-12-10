@@ -6,4 +6,15 @@
 
 .card{
     max-width: 850px;
+    border-radius: 1.5rem;
+}
+.card h2{
+    text-align: center;
+}
+
+
+
+.card-footer{
+    display: flex;
+    justify-content: center;
 }
