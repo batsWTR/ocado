@@ -1,0 +1,15 @@
+
+#content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card{
+    width: 80%;
+    max-width: 800px;
+}
+
+.card ul{
+    list-style: none;
+}

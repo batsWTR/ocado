@@ -80,6 +80,17 @@ class CardManager extends Manager{
         return $ret;
     }
 
+    public function getCard($cardId){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("SELECT name,card.id, isAdmin, gift.id AS giftId, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE card.id = :cardId
+        ");
+        $receve->execute([
+            'cardId' => $cardId
+        ]);
+        $results = $receve->fetchAll();
+        return $results;
+    }
+
     public function addPresent($cardId, $description, $price, $link){
         $db = $this->dbconnect();
         $receve = $db->prepare("INSERT INTO `gift`(`description`, `price`, `link`, `card_id`) VALUES (:desc, :price, :link, :id)");
