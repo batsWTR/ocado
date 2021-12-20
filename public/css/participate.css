@@ -8,6 +8,7 @@
 .card{
     width: 80%;
     max-width: 800px;
+    border-radius: 1.5rem;
 }
 
 .card ul{

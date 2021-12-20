@@ -122,16 +122,13 @@ function deleteCard($name, $userId){
 function participate($cardId){
     // get info for card from db
     // display page
-    echo '<h1>participer</h1>';
-    echo '<h2>card: '.$cardId.'</h2>';
-    echo 'info card db: ';
 
     $cardManager = new CardManager();
     $card = $cardManager->getCard($cardId);
 
-    echo '<pre>';
-    print_r($card);
-    echo '</pre>';
+    //echo '<pre>';
+    //print_r($card);
+    //echo '</pre>';
   
     require_once('./view/participate.php');
 }

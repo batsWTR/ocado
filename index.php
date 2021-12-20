@@ -85,8 +85,8 @@ if($route == ''){
         ocado();
     }
 
-
     participate($_GET['id']);
+    
 }elseif($route == 'participateAction'){
     echo $_POST['id'];
 }
