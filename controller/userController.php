@@ -51,7 +51,7 @@ function userCreation($login, $pass, $name, $mail){
 
 
     //session_start();
-    $_SESSION['name'] = ucfirst($name);
+    $_SESSION['name'] = $name;
     $_SESSION['userId'] = $id;
     $_SESSION['isAdmin'] = true;
 
@@ -86,7 +86,7 @@ function connect($name,$login,$pass){
     $cardManager = new CardManager();
     $id = $userManager->getUserId($login);
 
-    $_SESSION['name'] = ucfirst($name);
+    $_SESSION['name'] = $name;
     $_SESSION['userId'] = $id;
 
 

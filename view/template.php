@@ -31,7 +31,7 @@
                 if(!$_SESSION['name']){ ?>
                 <li><a href="index.php?url=signup">Creer un compte</a></li>
                 <?php }else{ ?>
-                    <li>Bonjour <?= $_SESSION['name']?></li>
+                    <li>Bonjour <?= ucfirst($_SESSION['name'])?></li>
                     <li><a href="index.php?url=disconnect">Deconnexion</a></li>
 
                 <?php } ?>

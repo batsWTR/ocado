@@ -6,7 +6,7 @@ require_once("./model/InputManager.php");
 
 
 function accueil($msg = null){
-    //session_start();
+
     if($_SESSION['name']){
         header('Location:index.php?url=ocado');
         return;

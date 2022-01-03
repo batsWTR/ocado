@@ -46,7 +46,13 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                                 <?php if($key == $_SESSION['name']){ ?>
                                 <a href='index.php?url=removePresent&id=<?=$present['giftId']?>'><i class="far fa-trash-alt"></i></a>
                                 <?php } ?>
-                            </div>    
+                            </div>
+                            <?php if($key != $_SESSION['name']){ ?>
+                            <div>
+                                <a href='index.php?url=participer&id=<?= $present['giftId'] ?> '>Je participe</a>
+                            </div>
+                
+            <?php } ?>    
                         </li>
                         <?php } ?>
                 <?php } ?>
@@ -55,12 +61,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
             <?php if($key == $_SESSION['name']){ ?>
                 <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAjout'>Ajouter</button>
             <?php } ?>
-            <?php if($key != $_SESSION['name']){ ?>
-                <a href='index.php?url=participer&id=<?= $val['cardId'] ?> ' class='btn btn-primary'>Je participe</a>
-                <div>
-                    participation
-                </div>
-            <?php } ?>
+            
             
             <?php if($_SESSION['isAdmin'] && ($key == $_SESSION['name'])){ ?>
             <a href="index.php?url=admin" class="btn btn-primary">Admin</a>
