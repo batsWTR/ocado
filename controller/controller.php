@@ -3,6 +3,7 @@
 require_once("./model/UserManager.php");
 require_once("./model/CardManager.php");
 require_once("./model/InputManager.php");
+require_once("./model/ParticipantManager.php");
 
 
 function accueil($msg = null){
@@ -125,11 +126,29 @@ function participate($giftId){
 
     $cardManager = new CardManager();
     $gift = $cardManager->getGift($giftId);
+    $card = $cardManager->getCardId($_SESSION["name"]);
 
     //echo '<pre>';
     //print_r($gift);
     //echo '</pre>';
   
     require_once('./view/participate.php');
+}
+
+function participateAction($userId, $giftId, $amount){
+    if(!$_SESSION['name']){
+        header('Location:ocado.php');
+        exit();
+    }
+
+    if($amount == ""){
+        $amount = 1;
+    }
+
+    $participantManager = new ParticipantManager();
+    $participantManager->addParticipation($userId, $giftId, $amount);
+
+    ocado();
+
 }
 

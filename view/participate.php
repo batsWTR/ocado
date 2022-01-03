@@ -22,6 +22,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/participate.
                     <label for="amount">Montant</label>
                     <input type="number" name="amount" min="1" max="<?= $gift[0]['price'] ?>">
                     <input type="hidden" name="id" value="<?= $gift[0]['id'] ?>">
+                    <input type="hidden" name="owner" value="<?= $card[0]["id"] ?>">
                 </form>  
             </div>
             <div class="card-footer">

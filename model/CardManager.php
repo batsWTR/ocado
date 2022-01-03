@@ -91,6 +91,17 @@ class CardManager extends Manager{
         return $results;
     }
 
+    public function getCardId($name){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("SELECT id FROM `card` WHERE card.name = :name
+        ");
+        $receve->execute([
+            'name' => $name
+        ]);
+        $results = $receve->fetchAll();
+        return $results;
+    }
+
     public function addPresent($cardId, $description, $price, $link){
         $db = $this->dbconnect();
         $receve = $db->prepare("INSERT INTO `gift`(`description`, `price`, `link`, `card_id`) VALUES (:desc, :price, :link, :id)");

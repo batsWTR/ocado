@@ -88,8 +88,14 @@ if($route == ''){
     participate($_GET['id']);
     
 }elseif($route == 'participateAction'){
-    echo $_POST['id'];
-    echo $_POST['amount'];
-    echo $_SESSION['userId'];
+    if(!isset($_POST['id']) || !isset($_POST['amount'])){
+        ocado();
+    }
+
+    $giftId = InputManager::validate($_POST['id']);
+    $amount = InputManager::validate($_POST['amount']);
+    $owner = InputManager::validate($_POST["owner"]);
+    
+    participateAction($owner, $giftId, $amount);
 }
 

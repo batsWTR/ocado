@@ -4,6 +4,11 @@ require_once('./model/Manager.php');
 
 class ParticipantManager extends Manager{
     public function addParticipation($owner, $gift, $price){
+
+        echo $owner;
+        echo $gift;
+        echo $price;
+        
         $db = $this->dbconnect();
         $receve = $db->prepare("INSERT INTO `participant`(`owner_id`, `gift_id`, `price`) VALUES (:owner,:gift,:price)");
         $receve->execute([
