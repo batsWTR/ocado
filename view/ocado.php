@@ -22,7 +22,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
     foreach($results as $key=>$val){?>
     <div class='card my-3'>
         <div class="card-header">
-            <h4><?= $key ?></h4>
+            <h4><?= ucfirst($key) ?></h4>
             <?php if($_SESSION['name'] == $key && !$_SESSION['isAdmin']){ ?>
                 <a href="index.php?url=deleteCard">Supprimer</a>
            <?php } ?>  

@@ -34,7 +34,7 @@ function userCreation($login, $pass, $name, $mail){
 
 
     $userManager = new UserManager();
-    $create = $userManager->userCreate($login,$pass_hash,$name,$mail);
+    $create = $userManager->userCreate($login,$pass_hash,strtolower($name),$mail);
 
 
     if($create == false){
@@ -46,12 +46,12 @@ function userCreation($login, $pass, $name, $mail){
     // create card
     $id = $userManager->getUserId($login);
     $cardManager = new CardManager();
-    $cardManager->createCard($name, true, $id);
+    $cardManager->createCard(strtolower($name), true, $id);
 
 
 
     //session_start();
-    $_SESSION['name'] = $name;
+    $_SESSION['name'] = ucfirst($name);
     $_SESSION['userId'] = $id;
     $_SESSION['isAdmin'] = true;
 
@@ -86,14 +86,14 @@ function connect($name,$login,$pass){
     $cardManager = new CardManager();
     $id = $userManager->getUserId($login);
 
-    $_SESSION['name'] = $name;
+    $_SESSION['name'] = ucfirst($name);
     $_SESSION['userId'] = $id;
 
 
-    $result = $cardManager->cardInfo($name, $id);
+    $result = $cardManager->cardInfo(strtolower($name), $id);
 
     if(!$result){
-        $cardManager->createCard($name, false, $id);
+        $cardManager->createCard(strtolower($name), false, $id);
         $_SESSION['isAdmin'] = false;
     }else{
         $_SESSION['isAdmin'] = $result[0]['isAdmin'];

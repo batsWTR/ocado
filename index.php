@@ -35,7 +35,7 @@ if($route == ''){
     $pass = InputManager::validate($_POST['password']);
 
  
-    connect($name,$login,$pass);
+    connect(strtolower($name),$login,$pass);
 
 }elseif($route == 'contactAction'){
     if(!isset($_POST['name']) or !isset($_POST['mail']) or !isset($_POST['message'])){
