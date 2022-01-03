@@ -89,5 +89,7 @@ if($route == ''){
     
 }elseif($route == 'participateAction'){
     echo $_POST['id'];
+    echo $_POST['amount'];
+    echo $_SESSION['userId'];
 }
 

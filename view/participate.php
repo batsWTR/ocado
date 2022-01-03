@@ -15,17 +15,13 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/participate.
         </div>
     <?php } ?>
         <div class="card">
-            <h5 class="card-header"><?= $card[0]['name'] ?></h5>
+            <h5 class="card-header"><?= ucfirst($gift[0]['name']) ?></h5>
             <div class="card-body">
                 <form id="formParticipate" action="index.php?url=participateAction" method="POST">
-                    <ul>
-                    <?php foreach($card as $gift){
-                        if($gift['description'] != ''){
-                            echo '<li>'.$gift['description'].' '.$gift['giftId'].'</li>';
-                        }
-                    } ?>
-                    </ul>
-                    <input type="hidden" name="id" value="<?= $card[0]['id'] ?>">
+                    <p><?= $gift[0]['description']?> <span><?= $gift[0]['price'] ?>&euro;</span></p>
+                    <label for="amount">Montant</label>
+                    <input type="number" name="amount" min="1" max="<?= $gift[0]['price'] ?>">
+                    <input type="hidden" name="id" value="<?= $gift[0]['id'] ?>">
                 </form>  
             </div>
             <div class="card-footer">

@@ -119,15 +119,15 @@ function deleteCard($name, $userId){
     require_once('./view/accueil.php');
 }
 
-function participate($cardId){
+function participate($giftId){
     // get info for card from db
     // display page
 
     $cardManager = new CardManager();
-    $card = $cardManager->getCard($cardId);
+    $gift = $cardManager->getGift($giftId);
 
     //echo '<pre>';
-    //print_r($card);
+    //print_r($gift);
     //echo '</pre>';
   
     require_once('./view/participate.php');

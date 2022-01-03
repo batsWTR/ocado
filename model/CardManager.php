@@ -111,5 +111,15 @@ class CardManager extends Manager{
         ]);
         $results = $receve->fetchAll();
     }
+
+    public function getGift($giftId){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("SELECT gift.id, `description`, `price`, `link`, `card_id`,card.name FROM `gift` LEFT JOIN `card`ON gift.card_id = card.id WHERE gift.id= :giftId");
+        $receve->execute([
+            'giftId' => $giftId
+        ]);
+        $results = $receve->fetchAll();
+        return $results;
+    }
 }
 
