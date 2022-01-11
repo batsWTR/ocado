@@ -97,5 +97,12 @@ if($route == ''){
     $owner = InputManager::validate($_POST["owner"]);
     
     participateAction($owner, $giftId, $amount);
+}elseif($route == 'participateRemove'){
+    if(!isset($_GET["id"])){
+        ocado();
+    }
+    
+    $id = InputManager::validate($_GET["id"]);
+    participateRemove($id);
 }
 

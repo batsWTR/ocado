@@ -69,7 +69,11 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                                                 <?php foreach($value["participant"] as $participant){
                                                     if($participant["giftId"] == $cle){ ?>
                                                     <div class="col-6">
-                                                        <p><?= $participant["owner_id"] ?> <span><?= $participant["amount"] ?>  	&euro;</span></p>  
+                                                        <p><?= ucfirst($participant["owner_id"]) ?> <span><?= $participant["amount"] ?> &euro;</span>
+                                                        <?php if($_SESSION["name"] == $participant["owner_id"]){ ?>
+                                                        <a href='index.php?url=participateRemove&id=<?= $participant["participantId"] ?>' ><i class="far fa-trash-alt"></i></a>
+                                                        <?php } ?>
+                                                    </p>  
                                                     </div>
 
                                                   <?php  }

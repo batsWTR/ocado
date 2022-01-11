@@ -55,7 +55,7 @@ class CardManager extends Manager{
         //SELECT name, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE name = 'bapt' AND user_id = 50
         //SELECT name, isAdmin FROM card WHERE user_id = :id
         $db = $this->dbconnect();
-        $receve = $db->prepare("SELECT name,card.id, isAdmin, gift.id AS giftId, gift.description, gift.price, gift.link, participant.owner_id, participant.price AS amount
+        $receve = $db->prepare("SELECT name,card.id, isAdmin, gift.id AS giftId, gift.description, gift.price, gift.link, participant.owner_id, participant.id AS participantId, participant.price AS amount
         FROM `card`  
         LEFT JOIN gift ON card.id = gift.card_id 
         LEFT JOIN participant ON gift.id = participant.gift_id 
@@ -87,7 +87,7 @@ class CardManager extends Manager{
                             if($val["giftId"] != NULL){
                                 $resultats[$key]["gift"][$val["giftId"]] = array("description"=>$val["description"], "price"=>$val["price"], "link"=>$val["link"], "participant"=>[]);
                                 if($val["owner_id"] != NULL){
-                                    $resultats[$key]["participant"][] = array("giftId"=>$val["giftId"], "owner_id"=>$id[$val["owner_id"]], "amount"=>$val["amount"]);           
+                                    $resultats[$key]["participant"][] = array("giftId"=>$val["giftId"], "owner_id"=>$id[$val["owner_id"]], "amount"=>$val["amount"], "participantId"=>$val["participantId"]);           
                                 }
                             }
                             

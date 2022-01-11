@@ -151,3 +151,10 @@ function participateAction($userId, $giftId, $amount){
 
 }
 
+function participateRemove($id){
+    $participantManager = new ParticipantManager();
+    $participantManager->deleteParticipation($id);
+
+    ocado();
+}
+
