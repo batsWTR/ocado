@@ -14,15 +14,15 @@ ob_start(); ?>
         </div>
     <?php } ?>
     <div>
-        <h3>Qu'est-ce que Ocado ?</h3>
-        <p>Ocado est un site de liste de cadeaux a partager avec vos proches</p>
-        <h3>Comment ca marche ?</h3>
+        <h3 class="fw-bold">Qu'est-ce que Ocado ?</h3>
+        <p class="fs-5">Ocado est un site de liste de cadeaux a partager avec vos proches</p>
+        <h3>Comment ça marche ?</h3>
         <ol>
-            <li>Creez un compte pour la famille ou les amis</li>
-            <li>Donnez le login et le mot de passe a votre groupe</li>
-            <li>Chacun se connecte en entrant son prenom</li>
-            <li>Remplissez votre liste de souhaits</li>
-            <li>Participez aux cadeaux des autres membres du groupe</li>
+            <li class="fw-bolder fs-5">Créez un compte pour la famille ou les amis</li>
+            <li class="fw-bolder fs-5">Donnez le login et le mot de passe à votre groupe</li>
+            <li class="fw-bolder fs-5">Chacun se connecte en entrant son prénom</li>
+            <li class="fw-bolder fs-5">Remplissez votre liste de souhaits</li>
+            <li class="fw-bolder fs-5">Participez aux cadeaux des autres membres du groupe</li>
         </ol>
         <a href="index.php?url=login" class="btn btn-primary">Se connecter</a>
     </div>
