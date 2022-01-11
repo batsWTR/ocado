@@ -17,10 +17,20 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/participate.
         <div class="card">
             <h5 class="card-header"><?= ucfirst($gift[0]['name']) ?></h5>
             <div class="card-body">
-                <form id="formParticipate" action="index.php?url=participateAction" method="POST">
+                <form id="formParticipate" action="index.php?url=<?php if(!empty($participation)){
+                    echo "participateUpdate";
+                }else{
+                    echo "participateAction";
+                }
+                    ?>" method="POST">
                     <p><?= $gift[0]['description']?> <span><?= $gift[0]['price'] ?>&euro;</span></p>
                     <label for="amount">Montant</label>
-                    <input type="number" name="amount" min="1" max="<?= $gift[0]['price'] ?>">
+                    <input type="number" name="amount" value="<?php if(!empty($participation)){
+                        echo $participation[0]["price"];
+                    }else{
+                            echo "";
+                        }
+                         ?>" min="1" max="<?= $gift[0]['price'] ?>">
                     <input type="hidden" name="id" value="<?= $gift[0]['id'] ?>">
                     <input type="hidden" name="owner" value="<?= $card[0]["id"] ?>">
                 </form>  

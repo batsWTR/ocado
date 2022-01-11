@@ -120,15 +120,18 @@ function deleteCard($name, $userId){
 }
 
 function participate($giftId){
-    // get info for card from db
-    // display page
+
 
     $cardManager = new CardManager();
     $gift = $cardManager->getGift($giftId);
     $card = $cardManager->getCardId($_SESSION["name"]);
 
+    // check if already participate
+    $participantManager = new ParticipantManager;
+    $participation = $participantManager->getOwnerParticipation($gift[0]["id"], $card[0]["id"]);
+
     //echo '<pre>';
-    //print_r($gift);
+    //print_r($participation);
     //echo '</pre>';
   
     require_once('./view/participate.php');
@@ -154,6 +157,14 @@ function participateAction($userId, $giftId, $amount){
 function participateRemove($id){
     $participantManager = new ParticipantManager();
     $participantManager->deleteParticipation($id);
+
+    ocado();
+}
+
+function participateUpdate($userId, $giftId, $amount){
+
+    $participantManager = new ParticipantManager();
+    $participantManager->updateParticipation($userId, $giftId, $amount);
 
     ocado();
 }

@@ -38,4 +38,32 @@ class ParticipantManager extends Manager{
 
         return $result;
     }
+
+    public function getOwnerParticipation($giftId, $ownerId){
+        $db = $this->dbconnect();
+        $receve = $db->prepare("SELECT * FROM participant WHERE gift_id = :id AND owner_id = :owner");
+        $receve->execute([
+            'id' => $giftId,
+            'owner' => $ownerId
+       
+        ]);
+        $result = $receve->fetchAll();
+
+        return $result;
+    }
+
+    public function updateParticipation($owner, $gift, $price){
+        echo "update participation";
+        $db = $this->dbconnect();
+        $receve = $db->prepare("UPDATE participant SET price=:price WHERE gift_id = :id AND owner_id = :owner");
+        $receve->execute([
+            'id' => $gift,
+            'owner' => $owner,
+            'price' => $price
+       
+        ]);
+        $result = $receve->fetchAll();
+
+        return;
+    }
 }
