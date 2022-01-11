@@ -18,58 +18,90 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
             <?= $message ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
-    <?php }
-    foreach($results as $key=>$val){?>
-    <div class='card my-3'>
-        <div class="card-header">
-            <h4><?= ucfirst($key) ?></h4>
-            <?php if($_SESSION['name'] == $key && !$_SESSION['isAdmin']){ ?>
-                <a href="index.php?url=deleteCard">Supprimer</a>
-           <?php } ?>  
-        </div>
-    
-        <div class="card-body">
-            <h5>Je souhaite:</h5>
-            <ul>
-                <?php
-                foreach($val['presents'] as $present){ ?>
-                        <?php if(!$present['description'] == ''){ ?>
-                        <li>
-                            <div>
-                                <span id='description'><?= $present['description']?></span>
-                                <?php if(!$present['link'] == ''){ ?>   
-                                <a href="<?= $present['link'] ?>" target="_blank">Lien</a>
-                                <?php } ?>
-                            </div>             
-                            <div>
-                                <span><?= $present['price']?>&#x20AC;</span>
-                                <?php if($key == $_SESSION['name']){ ?>
-                                <a href='index.php?url=removePresent&id=<?=$present['giftId']?>'><i class="far fa-trash-alt"></i></a>
-                                <?php } ?>
-                            </div>
-                            <?php if($key != $_SESSION['name']){ ?>
-                            <div>
-                                <a href='index.php?url=participer&id=<?= $present['giftId'] ?> '>Je participe</a>
-                            </div>
-                
-            <?php } ?>    
-                        </li>
-                        <?php } ?>
-                <?php } ?>
-
-            </ul>
-            <?php if($key == $_SESSION['name']){ ?>
-                <button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#modalAjout'>Ajouter</button>
-            <?php } ?>
-            
-            
-            <?php if($_SESSION['isAdmin'] && ($key == $_SESSION['name'])){ ?>
-            <a href="index.php?url=admin" class="btn btn-primary">Admin</a>
-            <?php } ?>
-        </div>
-        
-    </div>
     <?php } ?>
+    <?php foreach($resultats as $key => $value){ ?>
+        <div class="card my-3">
+            <div class="card-header">
+                <div class="container">
+                    <div class="row">
+                        <h4 class="col-6"><?= ucfirst($key) ?></h4>
+                        <?php if($_SESSION['name'] == $key && !$_SESSION['isAdmin']){ ?>
+                        <a class="col-2 ms-auto" href="index.php?url=deleteCard"><i class="far fa-trash-alt"></i></a>
+                        <?php } ?>  
+                    </div>
+                </div>  
+            </div>
+            <div class="card-body">
+                <h5>Je souhaite:</h5>
+                <?php if(sizeof($value["gift"]) != 0){
+                    foreach($value["gift"] as $cle=>$gift){
+                        $nb_participant = 0;
+                        foreach($value["participant"] as $participant){
+                            if($participant["giftId"] == $cle){
+                                $nb_participant ++;
+                            }
+                        } ?>
+                <div class="container">
+                    <div class="row mb-2">
+                        <div class="col-5"><?= $gift["description"] ?></div>
+                        <div class="col-3"><?= $gift['price'] ?>  	&euro;</div>
+                        <?php if($_SESSION["name"] == $key){ ?>
+                            <a href='index.php?url=removePresent&id=<?=$cle?>' class="col-3 ms-auto"><i class="far fa-trash-alt"></i></a>
+                        <?php }else{ ?>
+                            <a href='index.php?url=participer&id=<?= $cle ?> ' class="col-4 ms-auto" href="">Je participe</a>
+                        <?php } ?>
+                    </div>
+                    <?php if($gift["link"] != NULL){ ?>
+                    <div class="row">
+                        <a href="<?= $gift["link"] ?>" class="col mb-1" target="_blank">Lien</a>
+                    </div>
+                    <?php } ?>
+                    <div class="row mb-3">
+                        <div class="accordion accordion-flush" id="accordionParticipant<?= $cle ?>">
+                            <div class="accordion-item">
+                                <div class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseParticipant<?= $cle ?>"><?= $nb_participant ?> participants</button>
+                                </div>
+                                <div class="accordion-collapse collapse" id="collapseParticipant<?= $cle ?>" data-bs-parent="#accordionParticipant<?= $cle ?>">
+                                    <div class="accordion-body">
+                                        <div class="container">
+                                            <div class="row">
+                                                <?php foreach($value["participant"] as $participant){
+                                                    if($participant["giftId"] == $cle){ ?>
+                                                    <div class="col-6">
+                                                        <p><?= $participant["owner_id"] ?> <span><?= $participant["amount"] ?>  	&euro;</span></p>  
+                                                    </div>
+
+                                                  <?php  }
+                                                } ?>
+                                                
+                                            </div
+                                        ></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php   }
+                } ?>
+            </div>
+            <div class="card-footer">
+                <div class="container">
+                    <div class="row">
+                        <?php if($key == $_SESSION['name']){ ?>
+                        <button type='button' class='btn btn-primary col-6' data-bs-toggle='modal' data-bs-target='#modalAjout'>Ajouter un Cado</button>
+                        <?php } ?>
+                        <?php if($_SESSION['isAdmin'] && ($key == $_SESSION['name'])){ ?>
+                        <a href="index.php?url=admin" class="btn btn-primary col-4 ms-auto">Admin</a>
+                        <?php } ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <?php } ?>
+    
+
 </div>
 <!---   Modal add present  --->
 <div class='modal fade' id="modalAjout">
@@ -93,7 +125,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                     <div>
                         <label for="link">Lien</label>
                         <input type='text' name='link' size='21'>
-                        <input type="text" hidden value= <?=$results[$_SESSION["name"]]['cardId']; ?> name='cardId'>
+                        <input type="text" hidden value= <?=$resultats[$_SESSION["name"]]['cardId']; ?> name='cardId'>
                     </div>
                 </form>
             </div>

@@ -15,29 +15,7 @@
     border-radius: 1rem;
 }
 
-.card-header{
-    display: flex;
-    justify-content: space-between;
-    background-color: #f4c3f4;
-}
 
-.card ul{
-    list-style-type: none;
-}
-.card-body li{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
-
-}
-
-#description{
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    max-width: 100px;
-}
 
 #modalAjout{
     color: black;

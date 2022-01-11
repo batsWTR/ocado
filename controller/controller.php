@@ -44,8 +44,7 @@ function ocado($mes = null){
         exit();
     }
     $cardManager = new CardManager();
-
-    $results = $cardManager->getAllCards();
+    $resultats = $cardManager->getAllCards();
 
 
     $message = $mes;

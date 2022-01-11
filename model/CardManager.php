@@ -55,29 +55,46 @@ class CardManager extends Manager{
         //SELECT name, isAdmin, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE name = 'bapt' AND user_id = 50
         //SELECT name, isAdmin FROM card WHERE user_id = :id
         $db = $this->dbconnect();
-        $receve = $db->prepare("SELECT name,card.id, isAdmin, gift.id AS giftId, gift.description, gift.price, gift.link FROM `card`  LEFT JOIN gift ON card.id = gift.card_id WHERE user_id = :userId
-        ");
+        $receve = $db->prepare("SELECT name,card.id, isAdmin, gift.id AS giftId, gift.description, gift.price, gift.link, participant.owner_id, participant.price AS amount
+        FROM `card`  
+        LEFT JOIN gift ON card.id = gift.card_id 
+        LEFT JOIN participant ON gift.id = participant.gift_id 
+        WHERE user_id = :userId
+       ");
         $receve->execute([
             'userId' => $_SESSION['userId']
         ]);
-        $results = $receve->fetchAll();
+        $results = $receve->fetchAll(PDO::FETCH_GROUP);
 
-        $ret = [];
+        $resultats = [];
+        $id = [];
 
-        foreach($results as $result){
-            $ret[$result['name']] = [
-                'isAdmin' => $result['isAdmin'],
-                'cardId' => $result['id'],
-                'presents' => [],
-            ];
+        foreach($results as $key=>$value){
+            foreach($value as $val){
+                $id[$val["id"]] = $key;
+            }  
         }
-        foreach($results as $result){
-            $present = ['description'=>$result['description'], 'price'=>$result['price'], 'link'=>$result['link'], 'giftId' => $result['giftId'],];
-            $ret[$result['name']]['presents'][] = $present;
+
+
+        foreach($results as $key => $value){
+            $resultats[$key] = [];
+            $resultats[$key]["gift"] = [];
+            $resultats[$key]["participant"] = [];
+            $resultats[$key]["cardId"] = $value[0]["id"];
+            $resultats[$key]["isAdmin"] = $value[0]["isAdmin"];
+
+                        foreach($value as $val){  
+                            if($val["giftId"] != NULL){
+                                $resultats[$key]["gift"][$val["giftId"]] = array("description"=>$val["description"], "price"=>$val["price"], "link"=>$val["link"], "participant"=>[]);
+                                if($val["owner_id"] != NULL){
+                                    $resultats[$key]["participant"][] = array("giftId"=>$val["giftId"], "owner_id"=>$id[$val["owner_id"]], "amount"=>$val["amount"]);           
+                                }
+                            }
+                            
+                        }
             
         }
-
-        return $ret;
+        return $resultats;
     }
 
     public function getCard($cardId){
