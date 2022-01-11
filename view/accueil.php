@@ -22,6 +22,7 @@ ob_start(); ?>
             <li>Donnez le login et le mot de passe a votre groupe</li>
             <li>Chacun se connecte en entrant son prenom</li>
             <li>Remplissez votre liste de souhaits</li>
+            <li>Participez aux cadeaux des autres membres du groupe</li>
         </ol>
         <a href="index.php?url=login" class="btn btn-primary">Se connecter</a>
     </div>

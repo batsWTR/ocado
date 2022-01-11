@@ -56,6 +56,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                         <a href="<?= $gift["link"] ?>" class="col mb-1" target="_blank">Lien</a>
                     </div>
                     <?php } ?>
+                    <?php if($_SESSION["name"] != $key){ ?>
                     <div class="row mb-3">
                         <div class="accordion accordion-flush" id="accordionParticipant<?= $cle ?>">
                             <div class="accordion-item">
@@ -73,7 +74,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                                                         <?php if($_SESSION["name"] == $participant["owner_id"]){ ?>
                                                         <a href='index.php?url=participateRemove&id=<?= $participant["participantId"] ?>' ><i class="far fa-trash-alt"></i></a>
                                                         <?php } ?>
-                                                    </p>  
+                                                        </p>  
                                                     </div>
 
                                                   <?php  }
@@ -86,6 +87,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                             </div>
                         </div>
                     </div>
+                    <?php } ?>
                 </div>
                 <?php   }
                 } ?>
