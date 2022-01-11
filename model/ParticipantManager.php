@@ -53,7 +53,7 @@ class ParticipantManager extends Manager{
     }
 
     public function updateParticipation($owner, $gift, $price){
-        echo "update participation";
+
         $db = $this->dbconnect();
         $receve = $db->prepare("UPDATE participant SET price=:price WHERE gift_id = :id AND owner_id = :owner");
         $receve->execute([
