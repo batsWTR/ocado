@@ -48,6 +48,8 @@ if($route == ''){
         return;
     }
 
+
+    
     $name = InputManager::validate($_POST['name']);
     $mail = InputManager::validate($_POST['mail']);
     $message = InputManager::validate($_POST['message']);

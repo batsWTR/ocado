@@ -57,9 +57,8 @@ function contactAction($name, $mail, $message){
     
     $mailBody = $name.' a l adresse '.$mail.' vous a envoye le message:\r'.$message;
 
-    echo $mailBody;
-
-    echo 'demande de contact';
+    mail("baptiste.wentzler@wanadoo.fr", "Site Ocado", $mailBody);
+    ocado();
 }
 
 
