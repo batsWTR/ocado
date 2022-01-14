@@ -15,7 +15,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/participate.
         </div>
     <?php } ?>
         <div class="card">
-            <h5 class="card-header"><?= ucfirst($gift[0]['name']) ?></h5>
+            <h4 class="card-header"><?= ucfirst($gift[0]['name']) ?></h4>
             <div class="card-body">
                 <form id="formParticipate" action="index.php?url=<?php if(!empty($participation)){
                     echo "participateUpdate";
@@ -25,7 +25,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/participate.
                     ?>" method="POST">
                     <p><?= $gift[0]['description']?> <span><?= $gift[0]['price'] ?>&euro;</span></p>
                     <label for="amount">Montant</label>
-                    <input type="number" name="amount" value="<?php if(!empty($participation)){
+                    <input type="number" name="amount" size="6" value="<?php if(!empty($participation)){
                         echo $participation[0]["price"];
                     }else{
                             echo "";

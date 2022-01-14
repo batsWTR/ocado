@@ -6,9 +6,20 @@
 }
 
 .card{
-    width: 80%;
-    max-width: 800px;
-    border-radius: 1.5rem;
+    width: 25rem;
+    padding: 1rem;
+    background: linear-gradient(to left top, #b63e62, #81459f);
+    box-shadow: 1rem 1rem 1rem #551d2e;
+    color: whitesmoke;
+    border-radius: 1rem;
+}
+
+.card a{
+    color: gold;
+}
+
+.card a:hover{
+    color: rgb(146, 126, 9);
 }
 
 .card ul{

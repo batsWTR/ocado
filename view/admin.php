@@ -6,7 +6,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/admin.css">'
 
 <div id="content">
     <div class="card">
-        <h2 class="card-header"><?= $info['name'] ?></h2>
+        <h4 class="card-header"><?= ucfirst($info['name']) ?></h4>
         <div class="card-body">
             <p>Utilisateur: <?= $info['login'] ?></p>
             <p>Email: <?= $info['email'] ?></p>
@@ -23,7 +23,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/admin.css">'
         <div class="modal-content">
         <div class="modal-header">
             <h5 class="modal-title">Supprimez votre compte</h5>
-            <button type='button' class='btn-clos' data-bs-dismiss='modal'></button>
+            <button type='button' class='btn-close btn-close-white' data-bs-dismiss='modal'></button>
         </div>
         <div class="modal-body">
             <p>Attention si vous supprimez votre compte, ceci supprimera tous les utilisateurs lies a ce compte</p>

@@ -53,6 +53,12 @@ header a:hover{
 
 header h1{
     font-family: 'Kaushan Script', cursive;
+    text-shadow: .1rem .1rem whitesmoke, .2rem .3rem black;
+    letter-spacing: .2rem;
+}
+
+h4{
+    text-shadow: .1rem .1rem whitesmoke, .2rem .3rem black;
 }
 
 nav ul{
@@ -67,6 +73,24 @@ nav ul li{
     z-index: 100;
 }
 
+.btn, .btn:link, .btn-visited, .btn:focus, .btn-active{
+    border-radius: .4rem;
+    box-shadow: .3rem .3rem .3rem rgb(19, 4, 61);
+    color: rgb(243, 182, 26);
+    background-color: #449E3C;
+}
+
+
+
+.btn:hover{
+    background-color: #5AEB4D;
+}
+
+.modal-content{
+    background: linear-gradient(to left top, #b63e62, #81459f);
+    color: whitesmoke;
+    border-radius: 1.5rem;
+}
 
 
 @keyframes shake {

@@ -25,17 +25,17 @@
             <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#menu'>Menu</button>
 
         
-        <nav id='menu' class="collapse navbar-collapse navbar-right justify-content-end">
+        <nav id='menu' class="collapse navbar-collapse navbar-right justify-content-end me-3 fs-5">
             <ul class="navbar-nav">  
                 <?php
                 if(!$_SESSION['name']){ ?>
-                <li><a href="index.php?url=signup">Creer un compte</a></li>
+                <li class="nav-item"><a href="index.php?url=signup">Creer un compte</a></li>
                 <?php }else{ ?>
-                    <li>Bonjour <?= ucfirst($_SESSION['name'])?></li>
-                    <li><a href="index.php?url=disconnect">Deconnexion</a></li>
+                    <li class="nav-item">Bonjour <?= ucfirst($_SESSION['name'])?></li>
+                    <li class="nav-item"><a href="index.php?url=disconnect">Deconnexion</a></li>
 
                 <?php } ?>
-                <li><a href="index.php?url=contact"><i title='Contact' class="fas fa-question"></i></a></li>
+                <li class="nav-item"><a href="index.php?url=contact"><i title='Contact' class="fas fa-question"></i></a></li>
             </ul>
         </nav>
     </header>

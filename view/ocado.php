@@ -43,10 +43,10 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                         } ?>
                 <div class="container">
                     <div class="row mb-2">
-                        <div class="col-5"><?= $gift["description"] ?></div>
-                        <div class="col-3"><?= $gift['price'] ?>  	&euro;</div>
+                        <div class="col-5"><?= ucfirst($gift["description"]) ?></div>
+                        <div class="col-3 ms-auto fw-bolder"><?= $gift['price'] ?>  	&euro;</div>
                         <?php if($_SESSION["name"] == $key){ ?>
-                            <a href='index.php?url=removePresent&id=<?=$cle?>' class="col-3 ms-auto"><i class="far fa-trash-alt"></i></a>
+                            <a href='index.php?url=removePresent&id=<?=$cle?>' class="col-2 ms-auto px-0"><i class="far fa-trash-alt"></i></a>
                         <?php }else{ ?>
                             <a href='index.php?url=participer&id=<?= $cle ?> ' class="col-4 ms-auto" href="">Je participe</a>
                         <?php } ?>
@@ -61,7 +61,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                         <div class="accordion accordion-flush" id="accordionParticipant<?= $cle ?>">
                             <div class="accordion-item">
                                 <div class="accordion-header">
-                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseParticipant<?= $cle ?>"><?= $nb_participant ?> participants</button>
+                                    <button class="accordion-button button-white collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseParticipant<?= $cle ?>"><?= $nb_participant ?> participants</button>
                                 </div>
                                 <div class="accordion-collapse collapse" id="collapseParticipant<?= $cle ?>" data-bs-parent="#accordionParticipant<?= $cle ?>">
                                     <div class="accordion-body">

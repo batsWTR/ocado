@@ -25,14 +25,15 @@
     color: rgb(146, 126, 9);
 }
 
-.card h4{
-    text-shadow: .1rem .1rem whitesmoke, .2rem .3rem black;
-}
-#modalAjout .modal-content{
-    background: linear-gradient(to left top, #b63e62, #81459f);
+
+.accordion-button, .accordion-item{
+    background: linear-gradient(to left top, #8a2e4a, #572f6b);
     color: whitesmoke;
-    border-radius: 1.5rem;
 }
+
+
+
+
 
 
 
