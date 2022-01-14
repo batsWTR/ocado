@@ -28,13 +28,20 @@
 
 .accordion-button, .accordion-item{
     background: linear-gradient(to left top, #8a2e4a, #572f6b);
-    color: whitesmoke;
+   
+}
+
+.accordion-button{
+    color: goldenrod;
 }
 
 
-
-
-
+.accordion-button:focus {
+    z-index: 3;
+    color: rgb(187, 147, 47);
+    border-color: rgb(241, 189, 59);
+    box-shadow: 0 0 0 .25rem rgb(187, 147, 47);
+}
 
 
 
