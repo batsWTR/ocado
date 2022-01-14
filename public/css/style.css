@@ -22,10 +22,25 @@ body{
 
 header{
     justify-content: flex-end;
-    background-color: #edcaed;
+    background: linear-gradient(to left top, #b63e62, #81459f);
     margin-bottom: 2rem;
+    color: whitesmoke;
 }
 
+header .navbar-toggler{
+    color: whitesmoke;
+    font-family: 'Kaushan Script', cursive;
+    margin-right: 0.8rem;
+    padding: .8rem;
+}
+
+header a{
+    color: gold;
+}
+
+header a:hover{
+    color: rgb(146, 126, 9);
+}
 
 .logo img{
     width: 4.5rem;
@@ -52,13 +67,7 @@ nav ul li{
     z-index: 100;
 }
 
-.modal-content{
-    background-color: #e7d1e6;
-}
-.modal-header{
-    background-color: #f4c3f4;
 
-}
 
 @keyframes shake {
     0%{transform: rotateZ(0deg);}

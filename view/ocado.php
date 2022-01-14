@@ -115,7 +115,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Ajouter un cadeau<h5>
-                <button type='button' class='btn-clos' data-bs-dismiss='modal'></button>
+                <button type='button' class='btn-close btn-close-white' data-bs-dismiss='modal'></button>
             </div>
             <p>Champs obligatoires *</p>
             <div class="modal-body">

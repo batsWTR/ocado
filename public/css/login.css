@@ -14,7 +14,9 @@
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-40%);
-    background-color: #e7d1e6;
+    background: linear-gradient(to left top, #b63e62, #81459f);
+    color: whitesmoke;
+    box-shadow: 1rem 1rem 1rem #551d2e;
     border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
