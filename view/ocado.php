@@ -26,7 +26,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
                     <div class="row">
                         <h4 class="col-6"><?= ucfirst($key) ?></h4>
                         <?php if($_SESSION['name'] == $key && !$_SESSION['isAdmin']){ ?>
-                        <a class="col-2 ms-auto" href="index.php?url=deleteCard"><i class="far fa-trash-alt"></i></a>
+                        <a class="col-6 ms-auto" href="index.php?url=deleteCard">Supprimer ma carte</a>
                         <?php } ?>  
                     </div>
                 </div>  

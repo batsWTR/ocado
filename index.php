@@ -57,7 +57,12 @@ if($route == ''){
     contactAction($name,$mail,$message);
     
 }elseif($route == 'admin'){
-    admin();
+    if($_SESSION["isAdmin"] == 1){
+        admin();
+    }else{
+        ocado();
+    }
+    
 }elseif($route == 'addPresent'){
 
     $description = InputManager::validate($_POST['description']);

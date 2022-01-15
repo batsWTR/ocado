@@ -78,15 +78,19 @@ nav ul li{
     border-radius: .4rem;
     box-shadow: .3rem .3rem .3rem rgb(19, 4, 61);
     color: rgb(243, 182, 26);
-    background-color: #367a30;
+    
+}
+
+.btn-primary{
+    background-color: #5e3274;
 }
 
 .btn-danger{
-    background-color: rgb(153, 22, 22);
+    background-color: rgb(165, 24, 94);
 }
 
 .btn:hover{
-    background-color: #5AEB4D;
+    background-color: #b968e2;
 }
 
 .modal-content{
