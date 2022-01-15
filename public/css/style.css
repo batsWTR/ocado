@@ -89,7 +89,7 @@ nav ul li{
     background-color: rgb(165, 24, 94);
 }
 
-.btn:hover{
+.btn-primary:hover{
     background-color: #b968e2;
 }
 
