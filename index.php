@@ -65,6 +65,10 @@ if($route == ''){
     
 }elseif($route == 'addPresent'){
 
+    if(!$_SESSION["name"]){
+        ocado();
+    }
+
     $description = InputManager::validate($_POST['description']);
     $cardId = InputManager::validate($_POST['cardId']);
     $price = InputManager::validate($_POST['price']);
@@ -78,16 +82,32 @@ if($route == ''){
     ocado();
 
 }elseif($route == 'removePresent'){
+    if(!$_SESSION["name"]){
+        ocado();
+    }
+
     $id = InputManager::validate($_GET['id']);
     removePresent($id);
 
 }elseif($route == 'deleteUser'){
+    if(!$_SESSION["name"]){
+        ocado();
+    }
+
     deleteUser($_SESSION['userId']); 
        
 }elseif($route == 'deleteCard'){
+    if(!$_SESSION["name"]){
+        ocado();
+    }
+
     deleteCard($_SESSION['name'], $_SESSION['userId']);
 
 }elseif($route == 'participer'){
+    if(!$_SESSION["name"]){
+        ocado();
+    }
+
     if(!isset($_GET['id'])){
         ocado();
     }
@@ -95,6 +115,10 @@ if($route == ''){
     participate($_GET['id']);
     
 }elseif($route == 'participateAction'){
+    if(!$_SESSION["name"]){
+        ocado();
+    }
+
     if(!isset($_POST['id']) || !isset($_POST['amount'])){
         ocado();
     }
@@ -106,6 +130,10 @@ if($route == ''){
     participateAction($owner, $giftId, $amount);
 
 }elseif($route == 'participateRemove'){
+    if(!$_SESSION["name"]){
+        ocado();
+    }
+
     if(!isset($_GET["id"])){
         ocado();
     }
@@ -113,6 +141,10 @@ if($route == ''){
     $id = InputManager::validate($_GET["id"]);
     participateRemove($id);
 }elseif($route == "participateUpdate"){
+    if(!$_SESSION["name"]){
+        ocado();
+    }
+    
     if(!isset($_POST['id']) || !isset($_POST['amount'])){
         ocado();
     }
