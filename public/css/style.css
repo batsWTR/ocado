@@ -13,7 +13,8 @@
 
 body{
     background: url('../images/back.jpg') no-repeat;
-    color: #483b48;
+    color: whitesmoke;
+    font-weight: 900;
     background-size: cover;
     background-position: bottom right;
     min-height: 100vh;
@@ -87,12 +88,12 @@ nav ul li{
 .btn, .btn:link, .btn-visited, .btn:focus, .btn-active{
     border-radius: .4rem;
     box-shadow: .3rem .3rem .3rem rgb(19, 4, 61);
-    color: rgb(243, 182, 26);
+    color: rgb(255, 197, 51);
     
 }
 
 .btn-primary{
-    background: linear-gradient(to left top, #5e3274, #853950);
+    background: linear-gradient(to left top, #5e3274, #b48ab1, #853950);
 }
 
 .btn-danger{
