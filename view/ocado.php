@@ -14,7 +14,7 @@ $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">'
     <?php 
      if(isset($message) && $message != ''){
         ?>
-        <div class="alert fade show alert-dismissible alert-danger w-75 mx-auto my-4" role="alert">
+        <div class="alert fade show alert-dismissible <?= $color ?> w-75 mx-auto my-4" role="alert">
             <?= $message ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>

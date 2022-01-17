@@ -74,6 +74,16 @@ nav ul li{
     z-index: 100;
 }
 
+.alert-ok{
+    background-color: rgb(50, 146, 50);
+    color: whitesmoke;
+}
+
+.alert-nok{
+    background-color: rgb(170, 60, 121);
+    color: whitesmoke;
+}
+
 .btn, .btn:link, .btn-visited, .btn:focus, .btn-active{
     border-radius: .4rem;
     box-shadow: .3rem .3rem .3rem rgb(19, 4, 61);
@@ -82,7 +92,7 @@ nav ul li{
 }
 
 .btn-primary{
-    background-color: #5e3274;
+    background: linear-gradient(to left top, #5e3274, #853950);
 }
 
 .btn-danger{
@@ -90,7 +100,7 @@ nav ul li{
 }
 
 .btn-primary:hover{
-    background-color: #b968e2;
+    background: linear-gradient(to left top, #b968e2, #d3819a);
 }
 
 .modal-content{

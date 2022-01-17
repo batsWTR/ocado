@@ -6,13 +6,16 @@ require_once("./model/InputManager.php");
 require_once("./model/ParticipantManager.php");
 
 
-function accueil($msg = null){
+function accueil($msg = null, $colorClass = null){
 
     if($_SESSION['name']){
         header('Location:index.php?url=ocado');
         return;
     }
     $message = $msg;
+    $color = '';
+    $colorClass == null ? $color = '' : $color = $colorClass;
+
     require('./view/accueil.php');
 }
 
@@ -37,10 +40,13 @@ function contact(){
 
 
 
-function ocado($mes = null){
+function ocado($mes = null, $colorClass = null){
+
+    $color = '';
+    $colorClass == null ? $color = '' : $color = $colorClass;
 
     if(!$_SESSION['name']){
-        header('Location:index.php');
+        accueil($mes, $color);
         exit();
     }
     $cardManager = new CardManager();
@@ -48,6 +54,7 @@ function ocado($mes = null){
 
 
     $message = $mes;
+    
 
     require_once('./view/ocado.php');
     return;
@@ -55,10 +62,16 @@ function ocado($mes = null){
 
 function contactAction($name, $mail, $message){
     
-    $mailBody = $name.' a l adresse '.$mail.' vous a envoye le message:\r'.$message;
+    $mailBody = $name.' a l adresse '.$mail.' vous a envoye le message:\n'.$message;
 
-    mail("baptiste.wentzler@wanadoo.fr", "Site Ocado", $mailBody);
-    ocado();
+    $delivery = mail("baptiste.wentzler@wanadoo.fr", "Site Ocado", $mailBody);
+
+    $msg = "";
+    $color = '';
+    $delivery ? $msg = "Votre mail a bien ete envoye" : $msg = "Un probleme est survenu !";
+    $delivery ? $color = "alert-ok" : $color = "alert-nok";
+
+    ocado($msg, $color);
 }
 
 

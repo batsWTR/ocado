@@ -20,7 +20,7 @@
 <body>
     <header class="navbar navbar-expand-md">
 
-            <div class="logo navbar-brand"><a href="index.php"><img src="./public/images/gift.png" title="Accueil" alt="logo"><p class="mb-0">Accueil</p></a></div>
+            <div class="logo navbar-brand ms-2"><a href="index.php"><img src="./public/images/gift.png" title="Accueil" alt="logo"><p class="mb-0">Accueil</p></a></div>
             <h1 class="ms-3">O'cado</h1>
             <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#menu'>Menu</button>
 
