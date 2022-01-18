@@ -5,6 +5,7 @@
         header("location:./view/login.php");
     }
 $style = '<link rel="stylesheet" type="text/css" href="./public/css/ocado.css">';
+$script = '<script src="./public/js/ocado.js" defer></script>';
 
 ?>
 
