@@ -13,6 +13,8 @@
     <link href="./public/css/bs/bootstrap.min.css" rel="stylesheet">
     <script src="./public/js/bs/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous" defer></script>
 
+    <script src="./public/js/anime.min.js" defer></script>
+    <?= $script ?>
     <link rel="stylesheet" type="text/css" href="./public/css/style.css">
     <?= $style ?>
     <title>O'cado</title>

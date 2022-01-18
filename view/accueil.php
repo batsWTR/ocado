@@ -1,6 +1,7 @@
 
 <?php 
 $style = '<link rel="stylesheet" type="text/css" href="./public/css/login.css">';
+$script = '<script src="./public/js/accueil.js" defer></script>';
 
 ob_start(); ?>
 
@@ -13,7 +14,7 @@ ob_start(); ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         </div>
     <?php } ?>
-    <div>
+    <div id="description">
         <h3 class="fw-bold">Qu'est-ce que Ocado ?</h3>
         <p class="fs-5">Ocado est un site de liste de cadeaux a partager avec vos proches</p>
         <h3>Comment ça marche ?</h3>
