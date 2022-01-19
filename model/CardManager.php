@@ -59,7 +59,7 @@ class CardManager extends Manager{
         FROM `card`  
         LEFT JOIN gift ON card.id = gift.card_id 
         LEFT JOIN participant ON gift.id = participant.gift_id 
-        WHERE user_id = :userId
+        WHERE `user_id` = :userId
        ");
         $receve->execute([
             'userId' => $_SESSION['userId']
@@ -76,6 +76,7 @@ class CardManager extends Manager{
         }
 
 
+
         foreach($results as $key => $value){
             $resultats[$key] = [];
             $resultats[$key]["gift"] = [];
@@ -85,7 +86,7 @@ class CardManager extends Manager{
 
                         foreach($value as $val){  
                             if($val["giftId"] != NULL){
-                                $resultats[$key]["gift"][$val["giftId"]] = array("description"=>$val["description"], "price"=>$val["price"], "link"=>$val["link"], "participant"=>[]);
+                                $resultats[$key]["gift"][$val["giftId"]] = array("description"=>$val["description"], "price"=>$val["price"], "link"=>$val["link"]);
                                 if($val["owner_id"] != NULL){
                                     $resultats[$key]["participant"][] = array("giftId"=>$val["giftId"], "owner_id"=>$id[$val["owner_id"]], "amount"=>$val["amount"], "participantId"=>$val["participantId"]);           
                                 }
@@ -94,6 +95,8 @@ class CardManager extends Manager{
                         }
             
         }
+
+
         return $resultats;
     }
 
@@ -108,12 +111,13 @@ class CardManager extends Manager{
         return $results;
     }
 
-    public function getCardId($name){
+    public function getCardId($name, $userId){
         $db = $this->dbconnect();
-        $receve = $db->prepare("SELECT id FROM `card` WHERE card.name = :name
+        $receve = $db->prepare("SELECT id FROM `card` WHERE card.name = :name AND card.user_id = :userId
         ");
         $receve->execute([
-            'name' => $name
+            'name' => $name,
+            'userId' => $userId
         ]);
         $results = $receve->fetchAll();
         return $results;

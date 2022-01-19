@@ -136,7 +136,7 @@ function participate($giftId){
 
     $cardManager = new CardManager();
     $gift = $cardManager->getGift($giftId);
-    $card = $cardManager->getCardId($_SESSION["name"]);
+    $card = $cardManager->getCardId($_SESSION["name"], $_SESSION["userId"]);
 
     // check if already participate
     $participantManager = new ParticipantManager;
@@ -150,6 +150,7 @@ function participate($giftId){
 }
 
 function participateAction($userId, $giftId, $amount){
+   
     if(!$_SESSION['name']){
         header('Location:ocado.php');
         exit();
