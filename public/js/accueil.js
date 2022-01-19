@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
         targets: '#description li',
         translateX: '0rem',
         opacity: 1,
-        delay: anime.stagger(500, {start:1500})
+        delay: anime.stagger(500, {start:1000})
     });
 
 

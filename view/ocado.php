@@ -47,9 +47,9 @@ $script = '<script src="./public/js/ocado.js" defer></script>';
                         <div class="col-5"><?= ucfirst($gift["description"]) ?></div>
                         <div class="col-3 ms-auto fw-bolder"><?= $gift['price'] ?>  	&euro;</div>
                         <?php if($_SESSION["name"] == $key){ ?>
-                            <a href='index.php?url=removePresent&id=<?=$cle?>' class="col-2 ms-auto px-0"><i class="far fa-trash-alt"></i></a>
+                            <a href='index.php?url=removePresent&id=<?=$cle?>' class="col-2 ms-auto px-0 text-end"><i class="far fa-trash-alt"></i></a>
                         <?php }else{ ?>
-                            <a href='index.php?url=participer&id=<?= $cle ?> ' class="col-4 ms-auto" href="">Je participe</a>
+                            <a href='index.php?url=participer&id=<?= $cle ?> ' class="col-4 ms-auto text-end px-0" href="">Je participe</a>
                         <?php } ?>
                     </div>
                     <?php if($gift["link"] != NULL){ ?>
@@ -66,11 +66,11 @@ $script = '<script src="./public/js/ocado.js" defer></script>';
                                 </div>
                                 <div class="accordion-collapse collapse" id="collapseParticipant<?= $cle ?>" data-bs-parent="#accordionParticipant<?= $cle ?>">
                                     <div class="accordion-body">
-                                        <div class="container">
+                                        <div class="container px-0">
                                             <div class="row">
                                                 <?php foreach($value["participant"] as $participant){
                                                     if($participant["giftId"] == $cle){ ?>
-                                                    <div class="col-6">
+                                                    <div class="col-6 px-0">
                                                         <p><?= ucfirst($participant["owner_id"]) ?> <span><?= $participant["amount"] ?> &euro;</span>
                                                         <?php if($_SESSION["name"] == $participant["owner_id"]){ ?>
                                                         <a href='index.php?url=participateRemove&id=<?= $participant["participantId"] ?>' ><i class="far fa-trash-alt"></i></a>
